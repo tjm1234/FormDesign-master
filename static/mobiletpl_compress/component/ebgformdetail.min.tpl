@@ -1,0 +1,1 @@
+<div data-role="page" class="page-view j_page-view" id="ebgformdetailView"><section class="view-con" style="margin-bottom:20px"><div class="js_ebgformdetailhead view-info-head"><div class="info-title rw-acl-disabled" title="标题"></div></div><div class="js_ebgformdetailcontainer ebgform-preview form-preview form-view_js"></div></section></div>

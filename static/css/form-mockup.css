@@ -1,0 +1,128 @@
+
+
+
+/*手机视图*/
+.form-view-mobile {
+    width: 375px;
+    height: 680px;
+    background-color: #F4F7FA;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin: 0 auto;
+    box-shadow: 1px 2px 20px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 1px 2px 20px rgba(0,0,0,0.2);
+    z-index: 1002;
+    position: relative;
+}
+.form-view-mobile .mobile-hd {
+    height: 80px;
+    position: relative;
+}
+.form-view-mobile .mobile-hd:before {
+    position: absolute;
+    content: "";
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1px solid #DFE0E1;
+    left: 50%;
+    margin-left: -5px;
+    top: 27px;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
+.form-view-mobile .mobile-hd:after {
+    width: 40px;
+    height: 8px;
+    border: 1px solid #DFE0E1;
+    position: absolute;
+    content: "";
+    bottom: 22px;
+    left: 50%;
+    margin-left: -20px;
+    border-radius: 22px;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
+.form-view-mobile .mobile-content {
+    height: 520px;
+    margin: 0 20px;
+    border: 1px solid #E2E3E4;
+}
+.form-view-mobile .mobile-foot {
+    height: 80px;
+    position: relative;
+}
+.form-view-mobile .mobile-foot:after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 30px;
+    border: 1px solid #DFE0E1;
+    border-radius: 50%;
+    margin-left: -15px;
+    left: 50%;
+    top: 24px;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
+.form-view-mobile .mobile-content .status-bar {
+    background-image: url(/FormDesign-master3/static/img/mobile/global/form-preview-mobilehd@2x.png);
+    background-size: 320px 14px;
+    height: 14px;
+    width: 320px;
+    margin: 5px 0 0 0;
+}
+/*预览视图切换*/
+.form-viewport-opt {
+    position: absolute;
+    top: 106px;
+    right: -41px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.3);
+    transition: right ease-in-out 0.5s;
+    -webkit-transition: right ease-in-out 0.5s;
+    -moz-transition: right ease-in-out 0.5s;
+    -o-transition: right ease-in-out 0.5s;
+    z-index: 1001;
+}
+.form-viewport-opt>a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #999;
+    font-size: 25px;
+}
+.form-viewport-opt>a:hover{
+	text-decoration:none;
+}
+.form-viewport-opt>a+a {
+    border-top: 1px solid #ebebeb;
+}
+.form-viewport-opt>a.active {
+    background-color: #16A7DE;
+    color: #fff;
+}
+.form-view-mobile iframe {
+    border: none;
+    outline: none;
+    height: 499px;
+    width: 100%;
+    overflow: auto;
+    background: none;
+}

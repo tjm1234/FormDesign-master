@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <title>1234</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    <link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css_compress/mobile/mobile.part01.min.css" />
+    <link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css_compress/mobile/mobile.part02.min.css" />
+
+    </head>
+<body class="preview bg-white">
+<script src="/FormDesign-master3/static/js/libs.js"></script>
+<script src="/FormDesign-master3/static/js/plugins.m.form.js"></script>
+
+
+<div id="preview_m" class="form-preview-wrapper j_page-view">
+    <div id="form-preview" class="form-preview clearfix">
+        <input type="hidden" id="formId" value="4533136354637261015">
+        <input type="hidden" id="layoutId" value="2173310438941459916">
+        <input type="hidden" id="dataId" value="8743310729157001895">
+        <input type="hidden" id="taskId" value="22222">
+        <input type="hidden" id="scanReport" value="">
+        <textarea id="filterName" class="hide" >1234</textarea>
+        <textarea id="filterDescription" class="hide"></textarea>
+        <input id="colorScheme" type="hidden" name="colorScheme" value=''/>
+        <input id="bgcolorScheme" type="hidden" name="bgcolorScheme" value=''/>
+
+        <div class="form-view form-outview j_formpreview j_form_preview">
+            <div class="form-outview-banner j_formbanner"></div>
+            <div class="form-head">
+                <p class="form-name"></p>
+                <div class="form-description"></div>
+            </div>
+            <div id="widget-control" class="widget-control form-view_js"></div>
+            
+            <div class="data-loading hide j_loading">加载中...</div>
+            <div class="data-loading-cover hide j_loading">加载中...</div>
+        </div>
+        
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    var _host = 'http://'+window.location.host +'/FormDesign-master3';
+    var _formDesign = _host;
+
+    var smartheerID = '',
+        jsonfile = ".json";
+    var crmContext = {
+        "officewebUrl":""    //   office 预览地址 备用
+    };
+    var TEAMS = {
+        "ajaxMethod": "get",
+        "mobileformview":_host+"/mobile/mobileformview.htm",    //  手机预览
+        "gallery":"gallery.htm",  //  图片查看
+        "api":{
+            "remoteDownloadUrl":_host+"/onetable/a/remote/download/",  // 附件下载地址
+            "downImgUrl": _host+"/onetable/a/remote/previewremote/img",   // 图片下载地址
+            uploadImage:_host+"/freeform/uploadImage"+jsonfile, // 上传图片
+            uploadRemote:_host+"/freeform/uploadremote"+jsonfile, // 上传附件
+            findFileObj:_host+"/freeform/findFileObj"+jsonfile,   //  findFileObj
+            findSourcetable:_host+"/freeform/datasources/findSourcetable"+jsonfile,   //  findSourcetable
+            queryDataSourcesByTemplate:_host+"/freeform/datasources/queryDataSourcesByTemplate"+jsonfile, //queryDataSourcesByTemplate
+            initTemplate:_host+"/freeform/datasources/initTemplate"+jsonfile, //initTemplate
+            queryDateDetailsByDetails:_host+"/freeform/datasources/queryDateDetailsByDetails"+jsonfile, //queryDateDetailsByDetails
+            queryDataListByLayout:_host+"/freeform/datasources/queryDataListByLayout"+jsonfile, //queryDataListByLayout
+            queryDataTemplateById:_host+"/freeform/datasources/queryDataTemplateById"+jsonfile, //queryDataTemplateById
+            editDataSources:_host+"/freeform/datasources/editDataSources"+jsonfile, //editDataSources
+            suggestion:_host+"/freeform/suggestion"+jsonfile, //suggestion
+            save:_host+"/freeform/save"+jsonfile, // 保存设计器设计界面
+            findPreviewFrom:_host+"/freeform/findPreviewFrom"+jsonfile, // 预览查询
+            getFormId:_host+"/freeform/getFormId"+jsonfile, // formID
+            datatable:_host+"/freeform/datatable", // datatable
+            saveData:_host+"/freeform/saveData"+jsonfile, // 填报保存
+            findFormData:_host+"/freeform/findFormData"+jsonfile, // 填报查询
+            checkUnique:_host+"/freeform/checkUnique"+jsonfile, // 验证
+            findDeleteField:_host+"/freeform/findDeleteField"+jsonfile, // findDeleteField
+            findFormData:_host+"/freeform/findFormData"+jsonfile, // findFormData
+            findFormDatas:_host+"/freeform/findFormDatas"+jsonfile, // findFormDatas
+            queryFormFieldsByFormId:_host+"/freeform/queryFormFieldsByFormId"+jsonfile, // queryFormFieldsByFormId
+            findCommonField:_host+"/freeform/findCommonField"+jsonfile, // findCommonField
+        },
+        "service": {
+            "base": _host,
+            "crm": _host + "/crmapp",
+            "flow": _host + "/flowapp",
+            "form": _host,
+            "formreport": _host + "/formapp",
+            "crmextapp": _host + "/crmextapp",
+            "baseUrl" : _host + "/freeform"
+        },
+        "perLang": "zh_CN"
+    };
+    
+</script>
+<script  type="text/javascript">
+   
+    window.systemInfo_form="mobile";    //表单渲染平台类型 PC or Moblie
+     
+    seajs.config({base:TEAMS.service.base+"/static/js",
+            preload:["form.js"],
+            charset:"utf-8",debug:!1}),
+            seajs.use("form/formpreview");
+    </script>
+</body>
+</html>
+

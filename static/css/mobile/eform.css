@@ -1,0 +1,1520 @@
+@CHARSET "UTF-8";
+/* ================审批表单 ==================*/
+/* 表单列表 */
+.form-list>li {
+    line-height: 42px;
+    font-size: 16px;
+    position: relative;
+}
+.form-list>li:first-child{
+	border-top-color:transparent;
+}
+.form-list.formfilter-ul li.selected .ico-check {
+    background-position: -96px -47px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.biaogeform-container .form-view {
+    padding: 0 0 45px 0;
+}
+
+/*===============云表单库===============*/
+.eform-group{
+    background:#fff;
+}
+.eform-search {
+    height: 48px;
+    background: #fff;
+    padding: 7px 10px;
+    z-index: 100;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.eform-search:before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    background: #c8c7cc;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+.eform-search .search-list {
+    position: absolute;
+    left: 0;
+    top: 7px;
+}
+.eform-search .search-list>div{
+	float:left;
+}
+.eform-search .filtrate,.eform-search .order {
+    line-height: 34px;
+    border-right: 1px solid #dddddd;
+}
+.eform-search .filtrate a, .eform-search .order a {
+    color: #68686A!important;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    padding: 0 15px;
+    cursor: pointer;
+}
+.eform-search .filtrate i,.eform-search .order i{
+	margin:0 0 0 10px;
+	font-size:12px!important;
+}
+.eform-search .search-input {
+    margin: 0 0 0 170px;
+    position: relative;
+    width: 100%;
+}
+.eform-search .ui-input{
+    border-radius: 15px;
+    font-size: 12px;
+    width: 100%;
+    padding: 6px 10px;
+    text-indent: 20px;
+    border: 1px solid #d5d5d5;
+	-webkit-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	     -o-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+            transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+.eform-search .ui-input:focus {
+   border-color: #66afe9;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.eform-search .search-input i {
+    position: absolute;
+    color: #999;
+    top:8px;
+    left: 10px;
+}
+.eform-search .search-input i {
+    position: absolute;
+    color: #999;
+    top: 10px;
+    left: 10px;
+}
+.eform-search .order-dropdown, 
+.eform-search .filtrate-dropdown {
+    width: 100%;
+    z-index: 99;
+    position: absolute;
+    top: 45px;
+    margin: 0 -10px;
+    -webkit-box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    -o-box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    left: 10px;
+    right: 10px;
+}
+.eform-search .filtrate-dropdown{
+	background:#EFEFF4;
+	display:none
+}
+.eform-search .filtrate-dropdown .nav-li>ul>li{
+	height:45px;
+	line-height:45px;
+	padding:0 15px;
+	cursor:pointer;
+}
+.eform-search .filtrate-dropdown .nav-li>ul>li.active{
+	background:#fff;
+}
+.eform-search .filtrate-dropdown>li.active a{
+	color:#15A7DE;
+}
+.eform-search .order-dropdown{
+	display: none;
+    background-color: #fff;
+}
+.eform-search .order-dropdown:before, 
+.eform-search .order-dropdown:after,
+.eform-search .filtrate-dropdown:before, 
+.eform-search .filtrate-dropdown:after {
+    content: "";
+    display: block;
+    border-width: 8px;
+    position: absolute;
+    top: -16px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent #C8C7CC;
+    font-size: 0;
+    line-height: 0;
+}
+.eform-search .order-dropdown:after {
+    top: -15px;
+    border-color: transparent transparent #fff;
+}
+
+.eform-search .filtrate-dropdown:after{
+	top: -15px;
+    border-color: transparent transparent #fff;
+}
+.eform-search .order-dropdown:before, 
+.eform-search .order-dropdown:after{
+    left: 115px;
+}
+.eform-search .filtrate-dropdown:before, 
+.eform-search .filtrate-dropdown:after{
+    left: 30px;
+}
+.eform-search .nav-li{
+	float:left;
+	width:104px;
+}
+.eform-search .nav-li,
+.eform-search .nav-side{
+	max-height:180px;
+	overflow-y:auto;
+}
+.ebgform-copy-container .field  {
+  background: #fff;
+  padding: 15px;
+  word-wrap: break-word;
+  word-break: break-all;
+  position: relative;
+  margin: 25px 0 0;
+}
+.ebgform-copy-container .field+.field {
+    margin-top: 10px;
+}
+.ebgform-copy-container .field .widget-title {
+  margin: 3px 0 0 0;
+  font-size: 12px;
+  color: #999;
+}
+.ebgform-copy-container .field .widget-content input {
+  height: 28px;
+  line-height: 28px;
+  width: 100%;
+  resize: none;
+  border: none;
+  padding: 0;
+  vertical-align: top;
+  font-size: 18px;
+  color: #333;
+}
+
+.ebgform-copy-container  .check-list{
+	background:#fff;
+}
+.ebgform-copy-container .check-list li a {
+    line-height: 30px;
+    min-height: 30px;
+    padding: 0 40px 0 0;
+    font-size: 14px;
+    display: block;
+    position: relative;
+    color: #666;
+}
+.ebgform-copy-container  .check-list li:last-child a:before {
+    left: 0px;
+}
+.ebgform-copy-container  .check-list li.active a{
+	color:#0090d1;
+}
+.ebgform-copy-container  .check-list li.active a:active{
+	background:#eee;
+}
+.ebgform-copy-container .check-list li a:after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #ddd;
+    -webkit-box-shadow: 0 0 0 1px #ddd;
+}
+.ebgform-copy-container .check-list li.active a:after {
+    background: #03a9f4;
+    -webkit-box-shadow: 0 0 0 1px #03a9f4;
+    box-shadow: 0 0 0 1px #03a9f4;
+}
+.ebgform-copy-footer .sys-btn {
+    padding: 10px 5px;
+}
+.ebgform-copy-footer .sys-btn a {
+    height: 30px;
+    line-height: 30px;
+}
+/* 暂时修复菜单缺失情况 */
+.eform-search .nav-side{
+	height:180px;
+	background:#fff;
+}
+.eform-search .filtrate-dropdown .nav-li>ul>li>ul{
+	display:none;
+}
+.eform-search .order-dropdown li{
+	height:45px;
+	line-height:45px;
+	padding:0 20px;
+	border-left:3px solid #fff;
+	cursor:pointer;
+}
+.eform-search .order-dropdown li.active{
+	background:#EFEFF4;
+	border-left:3px solid #15A7DE;
+}
+.eform-search .nav-side {
+    border-radius: 0;
+    margin:0 0 0 93px;
+    position:relative;
+    background-color: #FFF;
+    z-index: 9999;
+}
+.eform-search .nav-side li{
+	height:45px;
+	line-height:45px;
+	padding:0 20px;
+	cursor:pointer;
+}
+.eform-search .nav-side li:active{
+	background:#EFEFF4;
+	opacity:0.8;
+}
+.eform-section {
+    margin-top: 55px;
+}
+.eform-bar-wrapper {
+    overflow-x: auto;
+    margin: 10px 15px 15px 15px;
+}
+.eform-bar {
+    /*width: 235%;*/
+    white-space: nowrap;
+    font-size:0;
+}
+.eform-bar .bar-item {
+    /*width: 28%;*/
+    width:65%;
+    display: inline-block;
+    /*float: left;*/
+    position: relative;
+    overflow: hidden;
+}
+.eform-bar .bar-item+.bar-item {
+    margin-left: 3%;
+}
+.eform-bar .bar-item>span {
+    color: #fff;
+    position: absolute;
+    bottom: 5px;
+    font-size: 16px;
+    left: 18px;
+    z-index: 1;
+}
+.eform-bar .bar-item:after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    height: 36px;
+    background-image: -webkit-linear-gradient(transparent,#000);
+    background-image: -moz-linear-gradient(transparent,#000);
+    background-image: linear-gradient(transparent,#000);
+    left: 0;
+    right: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    opacity: 0.7;
+}
+.eform-bar .bar-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+.eform-group {
+    position: relative;
+    overflow: hidden;
+}
+.eform-group:after {
+    height: 1px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    content: "";
+    background-color: #F1F1F1;
+    top: 0;
+}
+.eform-group+.eform-group {
+    margin-top: 20px;
+}
+.eform-group .group-head {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 16px 0 0px 15px;
+    color: #999;
+}
+.eform-group .linkmore {
+    float: right;
+    padding: 0 13px;
+    position: relative;
+    margin-right: 15px;
+}
+.eform-group .linkmore:after {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-color: #C7C7CC;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(45deg);
+    top: 6px;
+    right: 0px;
+}
+.eform-group .caption {
+    width: 100%;
+    overflow: hidden;
+}
+.eform-group .description {
+    font-size: 12px;
+}
+.eform-group .title {
+    float: left;
+    color: #666;
+    font-size: 15px;
+}
+.eform-group .group-tablist {
+    display: block;
+    overflow: hidden;
+    background-color: #fff;
+}
+.eform-group .group-tablist li {
+    overflow: hidden;
+    position: relative;
+}
+.eform-group .group-tablist li:after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background-color: #EBEBEB;
+  left: 15px;
+  right: 0;
+  bottom: 0px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.eform-group .group-tablist li:last-child::after {
+    left: 0;
+  transform: scaleY(1);
+}
+.eform-group .group-tablist .formlist-ico {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    color: #fff;
+    line-height: 20px;
+    border-radius: 3px;
+    text-align: center;
+    margin: 11px 0 0 15px;
+}
+.eform-group .group-tablist .formlist-ico img {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 11px;
+    left: 11px;
+}
+.eform-group .group-tablist .formlist-box {
+    margin: 0px 0 0 60px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 10px;
+}
+.eform-group .group-tablist .box-title {
+    font-weight: 600;
+    display: block;
+    width: auto;
+    margin: 0 80px 0 0;
+    font-size: 15px;
+}
+.eform-group .group-tablist .countnum {
+    color: #FF6149;
+}
+.eform-group .group-tablist .box-cnt {
+    color: #939393;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.eform-group .group-tablist .box-info {
+    font-size: 12px;
+    color: #939393;
+    display: block;
+    position: relative;
+    margin: 3px 80px 0 0;
+}
+.eform-group .group-tablist .box-btn {
+    padding: 0 12px;
+    height: 25px;
+    line-height: 24px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ebebeb;
+    color: #5D9CEC;
+    background: #fff;
+    font-size: 12px;
+    border-radius: 100px;
+}
+.eform-group .group-tablist li:active .formlist-box{
+	opacity:1;
+}
+.eform-group .group-tablist li .box-btn:active{
+	color:#16779c;
+	border:1px solid #16779c;
+}
+.eform-group .group-tablist .btn-group {
+    position: relative;
+    float: right;
+    padding-right: 15px;
+    margin-top: -15px;
+    margin-right: 5px;
+}
+.eform-group .group-tablist .btn-group:after {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-color: #C7C7CC;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(45deg);
+    right: 0;
+    top: 50%;
+    margin-top: -4px;
+}
+.eform-section .more{
+	border-radius:3px;
+    padding: 5px;
+	text-align:center;
+	margin:10px 20px;
+	-webkit-transition:all 0.2s ease;
+	   -moz-transition:all 0.2s ease;
+	        transition:all 0.2s ease;
+}
+.eform-section .more:active{
+	background:#eee;
+	-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);
+		    box-shadow:inset 0 3px 5px rgba(0,0,0,.125);
+}
+.eform-section .loading{
+    padding: 5px;
+	text-align:center;
+}
+.eform-section .loading span{
+    padding-left: 20px;
+    background: url(/FormDesign-master3/static/img/mobile/global/loading_middle.gif) left center/16px 16px no-repeat;
+    text-align: left;
+}
+.eform-section .count {
+    padding: 5px;
+    text-align: center;
+    color: #999;
+    margin:0 20px;
+}
+.ebgform-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    height: 100%;
+}
+.ebgform-dialog.in {
+    display: block;
+}
+.ebgform-dialog .box {
+    position: relative;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    z-index: 2000;
+    padding: 20px;
+    border-radius: 5px;
+}
+.ebgform-dialog.fade .box{
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate3d(-50%,-75%,0);
+    -o-transform: translate3d(-50%,-75%,0);
+    transform: translate3d(-50%,-75%,0);
+}
+.ebgform-dialog.in .box {
+    -webkit-transform: translate3d(-50%,-50%,0);
+    -moz-transform: translate3d(-50%,-50%,0);
+    -o-transform: translate3d(-50%,-50%,0);
+    -ms-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+}
+.ebgform-dialog .box .ico {
+    width: 70px;
+    height: 70px;
+    background-color: #209ED7;
+    border-radius: 50%;
+    margin: 10px auto;
+    position: relative;
+}
+.ebgform-dialog .box .ico:after {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 24px;
+    border-style: solid;
+    border-width: 11px 11px 0 0;
+    border-color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-65%,0) rotate(135deg);
+}
+.ebgform-dialog .box .tips {
+    font-size: 16px;
+}
+.ebgform-dialog .box .text {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.ebgform-dialog .box .btn a {
+    color: #333;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    position: relative;
+    border-radius: 8px;
+}
+.ebgform-dialog .box .btn a:after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.ebgform-dialog .box .btn a.blue {
+    background-color: #16a7de;
+    color: #fff;
+}
+.ebgform-dialog .box .btn a+a {
+    margin-top: 10px;
+}
+/*云表单库使用页面*/
+.ebgform-preview{
+    position:relative;
+    padding-bottom:15px!important;
+    margin-top:15px;
+}
+.ebgform-preview:after,
+.ebgform-preview:before{
+    content:'';
+    position: absolute;
+    top:-1px;
+    height:1px;
+    background:#d9d9d9;
+    left:0;
+    right:0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+.ebgform-preview:after{
+    top:auto;
+    bottom:-1px;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+}
+
+/*数据填写*/
+.eform-datareport-view .view-con{
+	margin-bottom:45px;
+}
+
+.eform-datareport {
+    display: block;
+    overflow: hidden;
+}
+.eform-datareport li {
+    background-color: #fff;
+    margin: 10px;
+    min-height: 67px;
+    border-radius: 3px;
+    border: 1px solid #ebebeb;
+}
+.eform-datareport li:last-child{
+	margin-bottom:0px;
+}
+.eform-datareport .num {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: none!important;
+    color: #999;
+    line-height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 17px 0 0 10px;
+}
+.eform-datareport .num:after {
+	content:'.';
+}
+.eform-datareport .list {
+    display: block;
+    position: relative;
+    padding: 15px 20px;
+    overflow: hidden;
+}
+.eform-datareport .list-title {
+    margin: 0 70px 0 0;
+}
+.eform-datareport .list-title .txt{
+/*     font-weight: 600; */
+    display: block;
+    width: auto;
+    font-size: 15px;
+}
+.eform-datareport .list-info {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+.eform-datareport .list-info>span {
+    display: block;
+    text-align: right;
+    color: #999;
+    font-size: 12px;
+    margin: 8px 0 0 0;
+    width:70px;
+}
+.eform-datareport .list-info>span:first-child {
+    margin: 0;
+}
+.eform-datareport .list-title .data-box {
+    color: #999;
+    font-size: 12px;
+    margin: 3px 0 0 0;
+}
+.eform-datareport .data-box>span {
+    display: block;
+    float: left;
+}
+.eform-datareport .list-title .status-span {
+    padding: 0px 6px;
+    border-radius: 5px;
+    margin: 0 0 0 5px;
+    display: none;
+}
+.eform-datareport .list-title .using {
+    border: 1px solid #7bb763;
+    color: #fff;
+    display: block;
+    color: #7bb763;
+}
+.eform-datareport .list-title .using-disabled {
+    border:1px solid #d9d9d9;
+    color:#d9d9d9;
+    color: #c4c4c4;
+    display:block;
+}
+.eform-datareport .list-title .team-span, 
+.eform-datareport .list-title .share-span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 0 0 5px;
+}
+.eform-datareport .list-title .team-span{
+    background-position: -20px -80px;
+}
+.eform-datareport .list-title .share-span{
+    background-position: -40px -80px;
+}
+.eform-datareport .list-title .data-span.hide, 
+.eform-datareport .list-title .status-span.hide,
+.eform-datareport .list-title .team-span.hide, 
+.eform-datareport .list-title .share-span.hide{
+	display:none;
+}
+.eform-datareport .data-box>.data-span {
+    margin: 1px 0 0 0;
+    font-size: 12px;
+    color: #666;
+}
+.eform-nodatabox .list-title .data-box{
+	display:none;
+}
+.eform-nodatabox .list-title .title-box {
+    margin: 11px 0 0 0;
+}
+.eform-nodatabox .num {
+    margin: 20px 0 0 10px;
+}
+.eform-datatable-view header h1 a {
+    width: 60%;
+    display: inline-block;
+}
+.eform-datatable-view header.header-autowidth h1 a {
+    width: auto;
+}
+.eform-datatable-view {
+  background-color: #eee;
+  padding-bottom: 48px;
+}
+.eform-datareport-view .header-menu ul li a {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.eform-shareform .modal-body{
+	max-height:320px;
+	overflow-y:auto;
+}
+.eform-shareform .share-controller{
+    line-height: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
+.eform-shareform .share-tip {
+    padding: 10px;
+    text-align: center;
+    color: #999;
+    font-size:12px;
+}
+.eform-shareform .share-url.off{
+	opacity:0.3;
+}
+.eform-shareform .share-url:not(.off){
+	-moz-user-select: text;
+	-webkit-user-select: text;
+}
+.eform-shareform .share-controller .label{
+	font-weight:bold;
+}
+.eform-shareform .share-item{
+    position: relative;
+}
+.eform-shareform .share-item .copy-btn{
+    margin:10px 0 22px;
+}
+.eform-shareform .share-item .copy-overlay{
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    opacity: 0.8;
+    bottom: 0;
+    background: #fff;
+    display:none;
+}
+.eform-shareform .share-item.off .copy-overlay{
+    display:block;
+}
+/* 敏感词 */
+.eform-shareform .sensitive-words{
+    background: #fff6f6;
+    margin: 0 0 15px 0;
+    padding: 13px 10px;
+    border-radius: 5px;
+}
+.eform-shareform .sensitive-words .title{
+    color: #fda6a6;
+    margin-bottom: 5px;
+}
+.eform-shareform .sensitive-words .content{
+	font-size:0;
+}
+.eform-shareform .sensitive-words .word-item{
+    display: inline-block;
+    background: #ffe3e3;
+    color: #af5f5f;
+    padding: 2px 5px;
+    margin: 2px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.eform-datatable li {
+    background: #fff;
+    border: 1px solid #d5d5d5;
+    margin: 10px;
+    padding: 10px;
+}
+.eform-datatable .list-title .txt {
+    font-weight: 600;
+    display: block;
+    width: auto;
+    font-size: 15px;
+}
+.eform-datatable .list-info {
+    margin: 3px 0 0;
+    color: #999;
+    font-size: 12px;
+    overflow: hidden;
+}
+.eform-datatable .list-info>span {
+    width: 50%;
+    display: block;
+    border-right: 1px solid #d5d5d5;
+    padding: 0 0 0 10px;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.eform-datatable .list-info>span:first-child {
+    padding: 0;
+}
+.eform-datatable .list-info>span:last-child {
+    border-right: none;
+}
+.eform-datatable .list-info .num {
+    color: #F59D1A;
+}
+/*外部分发*/
+.eform-shareform .share-url{
+	width:100%;
+	height:auto;
+	word-break:break-all;
+}
+/*数据统计*/
+.eform-charttab{
+	background-color: #fff;
+	border: 1px solid #BFBEC3;
+	border-width:0 0 1px 0;
+	height:360px;
+}
+.eform-datastatisics {
+    border: 1px solid #BFBEC3;
+	border-width:1px 0;
+    margin: 10px 0;
+}
+.eform-datastatisics li {
+    background-color: #fff;
+    padding: 15px 35px 15px 15px;
+    overflow: hidden;
+    border-top: 1px solid #C8C7CC;
+    position: relative;
+}
+.eform-datastatisics li:first-child {
+    border-top: none;
+}
+.eform-datastatisics li .num {
+    background-color: rgb(92, 186, 227);
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 8px 0 0 0;
+}
+.eform-datastatisics li .list {
+    position: relative;
+    margin: 0 0 0 20px;
+    font-size: 17px;
+}
+.eform-datastatisics li .list .data {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #676767;
+}
+.eform-datastatisics li .list p {
+    margin: 0 50px 0 0;
+    color: #1d1d1d;
+}
+.eform-datastatisics li:before {
+    content: "";
+    position: absolute;
+    border: 1px solid #B5B5B5;
+    border-width: 1px 1px 0 0;
+    height: 10px;
+    right: 15px;
+    top: 23px;
+    transform: rotate(45deg);
+    width: 10px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.eform-charttab .all-chart{
+	overflow:hidden;
+}
+.eform-charttab .eui-ios-tab ul li i{
+	width:16px;
+	height:16px;
+	display:block;
+	background-size: 100px 16px;
+    margin: 7px 5px;
+    background-image: url(/FormDesign-master3/static/img/mobile/eform/eform-chart-btn.png);
+}
+.eform-charttab .eui-ios-tab .baritem i {  
+    background-position: -32px 0;
+}
+.eform-charttab .eui-ios-tab .lineitem i {  
+    background-position: -16px 0;
+}
+.eform-charttab .eui-ios-tab .pieitem i {  
+    background-position: 0 0;
+}
+.eform-charttab .eui-ios-tab li.active .baritem i {
+    background-position: -83px 0;
+}
+.eform-charttab .eui-ios-tab li.active .lineitem i {
+    background-position: -67px 0;
+}
+.eform-charttab .eui-ios-tab li.active .pieitem i {
+    background-position: -50px 0;
+}
+/*表单附件预览*/
+.eform-moblefile .view-info {
+    background-color: #fff;
+}
+
+.eform-moblefile .view-info .file-txt {
+    text-align: center;
+    padding: 20px;
+}
+.eform-moblefile .file-txt p {
+    margin: 0 0 10px 0;
+    color: #999;
+}
+/*自定义列*/
+.eform-sch-column .view-con {
+    padding: 0 0 55px 0;
+}
+.eform-sch-column .first-row {
+    background-color: #fff;
+    margin: 10px 10px 0 10px;
+    padding: 10px 10px 0 10px;
+    border-radius: 3px;
+}
+.eform-sch-column .first-row .row-div {
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    min-height: 48px;
+}
+.eform-sch-column .first-row .title-column {
+    padding: 10px 69px 10px 10px;
+    height: 51px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.eform-sch-column .first-row .title-columnbtn {
+    padding: 0 15px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    border-left: 1px solid #e5e5e5;
+    top: 0;
+    width: 46px;
+    z-index: 1;
+    background-color: #fff;
+}
+.eform-sch-column .first-row .title-columnbtn a {
+    position: absolute;
+    top: 50%;
+    margin: -8px 0 0 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url(../FormDesign-master3/static/img/mobile/global/eteams_common.png) no-repeat;
+    background-size: 800px 210px;
+    background-position: -160px -47px;
+    left: 15px;
+}
+.eform-sch-column .first-row .title-columnbtn a:focus,
+.eform-sch-column .first-row .title-columnbtn a:active {
+    background-position: -576px -47px;
+}
+.eform-sch-column .first-row .title-column span {
+    background-color: #eee;
+    padding: 5px;
+    margin: 0 5px 0 0;
+    display: inline-block;
+}
+.eform-sch-column .first-row .title-column a {
+    color: #666;
+}
+.eform-sch-column .first-row .title-column a:last-child {
+    color: #999;
+    padding: 0 5px;
+}
+.eform-sch-column .second-row {
+    background-color: #fff;
+    padding: 10px;
+    margin: 0 10px 10px 10px;
+    overflow: hidden;
+}
+.eform-sch-column .second-row .row-div{
+	margin:0 -1%;
+}
+.eform-sch-column .second-row .row-div>div {
+    margin: 10px 0;
+    width: 100%;
+    background-color: #22BF64;
+    padding: 5px;
+    border-radius: 3px;
+    color: #fff;
+    position: relative;
+    height: 38px;
+}
+.eform-sch-column .second-row .edit-info *{
+	color:#fff;
+}
+.eform-sch-column .second-row .edit-info {
+    padding: 0 46px 0 0;
+    margin: 5px 0 0 0;
+}
+.eform-sch-column .second-row .no-delete .edit-info {
+    padding: 0 23px 0 0;
+}
+.eform-sch-column .second-row .no-delete .delete-btn{
+	display:none;
+}
+.eform-sch-column .second-row .edit-info>span {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+.eform-sch-column .second-row .edit-info .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+    padding: 0 17px 0 0;
+}
+/* .eform-sch-column .second-row .edit-info .delete {
+    width: 17px;
+    display: inline-block;
+    margin:-2px 0 0 -17px;
+    vertical-align: top;
+} */
+.eform-sch-column .second-row .opt-div {
+    position: absolute;
+    top: 50%;
+    margin: -10px 0 0 0;
+    height: 20px;
+    right: 5px;
+    font-size: 0px;
+}
+.eform-sch-column .second-row .opt-btn {
+    height: 20px;
+    display: inline-block;
+    background: url(/FormDesign-master3/static/img/mobile/global/eteams_common.png) no-repeat;
+    background-size: 800px 210px;
+}
+.eform-sch-column .second-row .edit-btn{
+    background-position: 0px -80px;	
+    width: 20px;
+}
+.eform-sch-column .second-row .delete-btn {
+    background-position: -62px -80px;
+    width: 18px;
+    margin: 0 5px 0 0;
+}
+.eform-sch-column .preview-box {
+    margin: 10px;
+    color: #666;
+}
+.eform-sch-column .eform-datatable li {
+    margin:0 0 10px 0;
+}
+.eform-sch-column .preview-box .title {
+    padding: 10px 0 20px 0;
+}
+.eform-sch-column .list-info>span {
+    width: 33.33%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.eform-sch-column .list-info>span.num {
+    color: #FE907F;
+}
+.eform-sch-filter {
+    padding-bottom: 0;
+    height: 100%;
+}
+.eform-sch-filter .side-panel {
+    background: #f2f2f2;
+    height: 100%;
+    position: relative;
+}
+.eform-sch-filter .side-panel .panel-header {
+    font-size: 18px;
+    background: #fff;
+    margin-bottom: 15px;
+    height: 44px;
+    line-height: 44px;
+    position: relative;
+    text-align: center;
+}
+.eform-sch-filter .filter-list>li .label{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* .eform-sch-filter .side-panel .eui-foot-tools{
+    position: absolute;
+} */
+.eform-sch-filter .filterPanel {
+    overflow-y: auto;
+    height: 100%;
+}
+.eform-sch-filter .filter-list {
+    padding: 0 0 100px 0;
+}
+.eform-sch-filter .filter-list .filter-con>span {
+    word-break: break-all;
+}
+.eform-sch-order .side-panel .panel-header {
+    font-size: 18px;
+    background: #fff;
+    margin-bottom: 15px;
+    height: 44px;
+    line-height: 44px;
+    position: relative;
+    text-align: center;
+}
+.eform-sch-order .order-list li a {
+    height: 45px;
+    overflow: hidden;
+}
+.eform-sch-order .order-list li .txt1 {
+    position: absolute;
+    left:15px;
+    top:0;
+}
+.eform-sch-order .order-list li .field-name  {
+    max-width: 100%;
+    padding: 0 64px 0 16px;
+    display: inline-block;
+}
+.eform-sch-order .order-list li .txt2 {
+    display: inline-block;
+    margin: 0 0 0 -64px;
+    vertical-align: top;
+}
+
+/*表单图片预览*/
+.eform-image-view .imagebutton-box {
+    float: right;
+}
+.eform-image-view .imagebutton-box>a {
+    overflow: hidden;
+    display: inline-block;
+}
+.eform-image-view .imagebutton-box img {
+    height: 16px;
+    padding: 15px 10px;
+}
+
+/*表单填写--位置定位控件*/
+.eform-write-view .position-search .sch-box {
+    padding: 8px;
+    position: relative;
+    background-color: rgba(174, 243, 245, 0.3);
+}
+.eform-write-view .position-search .sch-input {
+    border: 1px solid #E8E6E5;
+}
+.eform-write-view .position-address {
+    position: fixed;
+    bottom: 45px;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    padding: 11px 18px;
+}
+.eform-write-view .position-address .info {
+    width: 100%;
+    display: inline-block;
+}
+.eform-write-view .position-address .info>* {
+    display: inline-block;
+    vertical-align: middle;
+}
+.eform-write-view .position-address .info>i {
+    font-size: 20px;
+    color: #15A6DD;
+    margin-right: 4px;
+}
+.eform-write-view .position-address .info>span {
+    font-size: 16px;
+}
+.eform-write-view .position-address .location {
+    color: #A2A2A2;
+    padding-left: 29px;
+    font-size: 0px;
+}
+.eform-write-view .position-address .location>* {
+    font-size: 14px;
+}
+.eform-write-view .position-address .location>span+span {
+    margin-left: 20px;
+}
+/*地图定位控件统计*/
+.eform-stat-position {
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    right: 10px;
+    top: 60px;
+}
+.stat-position-box {
+    width: 100%;
+    padding-right: 52px;
+    position: relative;
+}
+.stat-position-box:after {
+    position: absolute;
+    content: "";
+    top: 5px;
+    bottom: 5px;
+    right: 52px;
+    width: 1px;
+    background-color: #ddd;
+}
+.eform-stat-position .stat-position-input {
+    box-sizing: border-box;
+    padding: 9px 0px 9px 10px;
+    line-height: 20px;
+    font-size: 14px;
+    height: 36px;
+    color: rgb(51, 51, 51);
+    position: relative;
+    border-radius: 5px 0px 0px 5px;
+    width: 100%;
+    border-style: solid;
+    border-color: #d5d5d5;
+    border-width: 1px 0 1px 1px;
+}
+.eform-stat-position .stat-position-search {
+    pointer-events: auto;
+    width: 52px;
+    height: 36px;
+    float: left;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    color: #666;
+    text-align: center;
+    line-height: 36px;
+    font-size: 14px;
+    background-color: #fff;
+    border-style: solid;
+    border-color: #d5d5d5;
+    border-width: 1px 1px 1px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+.eform-stat-position .stat-position-close {
+    position: absolute;
+    z-index: 11;
+    right: 62px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    background-color: #ddd;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    margin-top: -9px;
+    line-height: 18px;
+    font-size: 18px;
+    top: 50%;
+}
+.eform-stat-position .stat-position-close:focus {
+    background-color: #D4D1D1;
+    text-decoration:none;
+}
+.eform-map-box {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: #fff;
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    -webkit-transition: transform .2s ease;
+    transition: transform .2s ease;
+    bottom: 48px;
+}
+.eform-map-box.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+.eform-map-head {
+    color: #333;
+    position: relative;
+    padding: 5px 10px;
+}
+.eform-map-head>span {
+    display: block;
+}
+.eform-map-head .address {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 100px;
+}
+.eform-map-head .votes {
+    position: absolute;
+    right: 30px;
+    top: 1px;
+    font-size: 12px;
+    line-height: 30px;
+}
+.eform-map-head .votes .num {
+    color: #F64336;
+    margin-right: 3px;
+    vertical-align: top;
+}
+.eform-map-head .address>i {
+    font-size: 12px;
+    color: #999;
+    vertical-align: 0px;
+    margin-right: 3px;
+}
+.eform-map-head .close {
+    position: absolute;
+    right: 10px;
+    float: none;
+    line-height: 30px;
+    top: 0;
+}
+.eform-map-list {
+    max-height: 230px;
+    overflow-x: auto;
+}
+.eform-map-list li {
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.eform-map-list li.active {
+    background-color: #f8f8f8;
+}
+.eform-map-list .avatar {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -16px;
+}
+.eform-map-list .avatar img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+.eform-map-list li>div:not(.avatar) {
+    padding-left: 45px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+.eform-map-list li>div {
+    font-size: 12px;
+}
+.eform-map-list li:after {
+    height: 10px;
+    width: 10px;
+    border-color: #c7c7cc;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    position: absolute;
+    content: "";
+    right: 14px;
+    top: 50%;
+    margin-top: -7px;
+    transform: rotate(45deg);
+}
+.eform-map-list .report-name {
+    padding-top: 2px;
+    font-size: 14px;
+}
+.eform-map-list .time {
+    color: #999;
+}
+.eform-map-list li .name {
+    color: #666;
+}
+.eform-stat-position .view-tab {
+    float: right;
+}
+.eform-stat-position .view-tab a {
+    color: #999;
+    padding: 0 5px;
+}
+.eform-stat-position .view-tab a.active {
+    color: #5d9cec;
+}
+.eform-stat-position .view-tab a+a {
+    border-left: 1px solid #d2d2d2;
+}
+.eform-map-head:after,
+.eform-map-list li:before {
+    position: absolute;
+    content: "";
+    height: 1px;
+    background-color: #ddd;
+    bottom: 0;
+	-webkit-transform-origin: 0 0;
+    		transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+   			transform: scaleY(0.5);                                                  
+}
+.eform-map-head:after{
+    left: 0;
+    right: 0;	
+}
+.eform-map-list li:before{
+    left: 10px;
+    right: 10px;
+}

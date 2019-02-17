@@ -1,0 +1,119 @@
+var smartheerID = '',
+  		jsonfile = ".json";
+  	var crmContext = {
+  		"remoteDownloadUrl":_host+"/onetable/a/remote/download",
+  		"remoteUploadUrl":"https://up.smartheer.cn",
+  		"officewebUrl":"http://docviewer2.smartheer.cn"
+  	};
+	var TEAMS = {
+  		"ajaxMethod": "get",
+  		"downImgUrl": _host+"/onetable/a/remote/previewremote/img",   // 图片下载地址
+  		"downFileUrl": _host+"/onetable/a/remote/download",   // 附件下载地址
+		"api":{
+			checkFormName:_host+"/freeform/checkFormName"+jsonfile,   //  checkFormName
+			findSourcetable:_host+"/freeform/datasources/findSourcetable"+jsonfile,   //  findSourcetable
+			queryDataSourcesByTemplate:_host+"/freeform/datasources/queryDataSourcesByTemplate"+jsonfile, //queryDataSourcesByTemplate
+			initTemplate:_host+"/freeform/datasources/initTemplate"+jsonfile, //initTemplate
+			queryDateDetailsByDetails:_host+"/freeform/datasources/queryDateDetailsByDetails"+jsonfile, //queryDateDetailsByDetails
+			queryDataListByLayout:_host+"/freeform/datasources/queryDataListByLayout"+jsonfile, //queryDataListByLayout
+			queryDataTemplateById:_host+"/freeform/datasources/queryDataTemplateById"+jsonfile, //queryDataTemplateById
+			suggestion:_host+"/freeform/suggestion"+jsonfile, //suggestion
+			save:_host+"/freeform/save"+jsonfile, // 保存设计器设计界面
+			findPreviewFrom:_host+"/freeform/findPreviewFrom"+jsonfile, // 预览查询
+			uploadImage:_host+"/freeform/uploadImage"+jsonfile, // 上传图片
+			getFormId:_host+"/freeform/getFormId"+jsonfile, // formID
+			datatable:_host+"/freeform/datatable", // datatable
+			saveData:_host+"/freeform/saveData"+jsonfile, // 填报保存
+			findFormData:_host+"/freeform/findFormData"+jsonfile, // 填报查询
+			checkUnique:_host+"/freeform/checkUnique"+jsonfile, // 验证
+			findDeleteField:_host+"/freeform/findDeleteField"+jsonfile, // findDeleteField
+			findFormData:_host+"/freeform/findFormData"+jsonfile, // findFormData
+			findFormDatas:_host+"/freeform/findFormDatas"+jsonfile, // findFormDatas
+			queryFormFieldsByFormId:_host+"/freeform/queryFormFieldsByFormId"+jsonfile, // queryFormFieldsByFormId
+			findCommonField:_host+"/freeform/findCommonField"+jsonfile, // findCommonField
+		},
+	    "service": {
+	        "base": _host,
+	        "crm": _host + "/crmapp",
+	        "flow": _host + "/flowapp",
+	        "form": _host,
+	        "formreport": _host + "/formapp",
+	        "crmextapp": _host + "/crmextapp",
+	        "baseUrl" : _host + "/freeform",
+	        "hr": _host + "/hrapp",
+	        "sms": _host + "/smsapp",
+	        "ceUrl": "",
+	        "passport": "",
+	        "tenant": "",
+	        "biaoge": "",
+	        "external": "",
+	        "mcConnector": "",
+	        "mcManager": _host + "/manager",
+	        "imWebconnector": "",
+	        "imWebapp": "",
+	        "imApiconnector": "",
+	        "cus": _host + "/cusapp",
+	        "comp": _host + "/compapp",
+	        "paas": _host + "/paasapp",
+	        "portal": _host + "/portalapp",
+	        "fullsearch": "",
+	        "third": _host + "/third",
+	        "docUrl": "",
+	        "rule": _host + "/ruleapp",
+	        "gcid": "",
+	        "imApiUrl": ""
+	    },
+	    "modules": [],
+	    "perLang": "zh_CN",
+	    "currentTenant": {
+	        "tenantKey": "",
+	        "tenantName": "",
+	        "status": "probation",
+	        "maxLicense": 25,
+	        "usedLicense": 1,
+	        "maxSpace": 1000,
+	        "usedSpace": 0,
+	        "dateCreated": 1531184406000,
+	        "contact": "",
+	        "email": "",
+	        "mobile": "",
+	        "isPay": true,
+	        "isBlackList": false,
+	        "isWhiteList": false,
+	        "maxPersons": 50,
+	        "imCid": "",
+	        "available": true
+	    },
+	    "currentUser": {
+	        "username": "",
+	        "pinyin": "",
+	        "email": "",
+	        "status": "",
+	        "department": {
+	            "name": "",
+	            "rank": 1,
+	            "hasSubs": false,
+	            "invisible": false,
+	            "delete": false,
+	            "id": ""
+	        },
+	        "modules": [],
+	        "manageModules": [],
+	        "hasInvUser": false,
+	        "birthdayFlag": false,
+	        "logogram": "TJM",
+	        "classifyAdmin": false,
+	        "setting": false,
+	        "admin": true,
+	        "extra": false,
+	        "markread": false,
+	        "containRels": false,
+	        "moduleAdmin": false,
+	        "account": "",
+	        "followAndSub": false,
+	        "name": "TJM",
+	        "id": "",
+	        "userId": "",
+	        "employeeId": ""
+	    }
+	};

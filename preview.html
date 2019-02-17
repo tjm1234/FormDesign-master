@@ -1,0 +1,369 @@
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Document</title>
+<script src="static/js/lib/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+		var errorMsg;
+	    $(function(){
+           $(".btndiv").hide();
+	    	var url_365 = GetQueryString("w365");//365预览方式
+	 		var url_ms = GetQueryString("wms");//微软预览方式
+	 		var preview_url = GetQueryString("prewurl");
+	 		var WOPISrc = GetQueryString("WOPISrc"); 
+	 		var fileName = GetQueryString("fileName",true);
+			if(fileName){
+	 			$("head title").html(decodeURI(fileName));
+			}
+			//errorMsg
+			errorMsg = GetQueryString("errorMsg");
+	 		var url365;
+	 		var urlms;
+	
+	 		if(url_ms == null){
+	 			urlms = preview_url;
+				var access_token = GetQueryString("access_token");
+				if(access_token != undefined){
+				 preview_url += "&access_token="+access_token;
+				}
+	 			preview_url = preview_url+"&WOPISrc="+WOPISrc;
+	 			$("#docViewer").attr("src",preview_url);
+	 			urlms = preview_url;
+	 			$("input[name='wms']").val(urlms);
+				url365 = url_365+"&fileName="+fileName;
+	 			if(url_365.indexOf("https")>-1){
+	 				url365 = url_365+"&ssl=1";
+	 			}
+	 			$("input[name='w365']").val(url365);
+	 		}
+	    });
+		
+	       
+              function GetQueryString(name,notunescape)
+             {
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+				var searchurl = window.atob(window.location.search.substr(1));
+                var r = searchurl.match(reg);
+                if(r!=null){
+					if(notunescape){
+						return  r[2];
+					}else{
+						return  unescape(r[2]);
+					}
+				}else{
+					return null;
+				}
+             }
+                 
+             $(document).ready(function(e){    
+    　　  		 var iframe = document.getElementById("docViewer");      
+       			 if (iframe.attachEvent) {      
+					 iframe.attachEvent("onload", function() {      
+						  
+				 var docvalue = $($("#docViewer").get(0).contentWindow.document.body).find("#WACDialogText").html();
+				 if(docvalue != undefined){
+				    if(docvalue.indexOf("很抱歉，遇到问题，无法打开此演示文稿。请重试。")>-1){
+						$(".btndiv").show();
+					 }
+					  //很抱歉，出现问题，无法打开此文档。如果此情况持续发生，请尝试在 Microsoft Word 中打开文档。
+					 if(docvalue.indexOf("很抱歉，出现问题，无法打开此文档。如果此情况持续发生，请尝试在 Microsoft Word 中打开文档。")>-1){
+						 $(".btndiv").show();
+					 }
+				 }
+                 
+				 //运行时错误
+                 var runtimeError = $($("#docViewer").get(0).contentWindow.document.body).find("title").html();
+				 if(runtimeError != undefined && runtimeError == "运行时错误"){
+				    $(".btndiv").show();
+				 }
+               
+					 });     
+        		} 
+				else
+				{      
+          		  iframe.onload = function() {      
+                  var docvalue = $($("#docViewer").get(0).contentWindow.document.body).find("#WACDialogText").html();
+                  if(docvalue != undefined){
+				    if(docvalue.indexOf("很抱歉，遇到问题，无法打开此演示文稿。请重试。")>-1){
+						$(".btndiv").show();
+					 }
+					  //很抱歉，出现问题，无法打开此文档。如果此情况持续发生，请尝试在 Microsoft Word 中打开文档。
+					 if(docvalue.indexOf("很抱歉，出现问题，无法打开此文档。如果此情况持续发生，请尝试在 Microsoft Word 中打开文档。")>-1){
+						 $(".btndiv").show();
+					 }
+					 //很抱歉，出现问题，无法打开此PDF。如果此情况持续发生，请尝试在 Microsoft Word 中打开PDF。
+                      if(docvalue.indexOf("很抱歉，出现问题，无法打开此PDF。如果此情况持续发生，请尝试在 Microsoft Word 中打开PDF。")>-1){
+						 $(".btndiv").show();
+					 }
+					 //很抱歉，Word Web App 打开此文档时遇到问题。 要查看此文档，请在 Microsoft Word 中打开它。
+                    if(docvalue.indexOf("很抱歉，Word Web App 打开此文档时遇到问题。 要查看此文档，请在 Microsoft Word 中打开它")>-1){
+						 $(".btndiv").show();
+					 }
+				 }
+				 //运行时错误
+                 var runtimeError = $($("#docViewer").get(0).contentWindow.document.body).find("title").html();
+				 if(runtimeError != undefined && runtimeError == "运行时错误"){
+				    $(".btndiv").show();
+				 }
+                 
+           	  }
+
+                 
+        	 }
+			 }); 
+
+
+	 	function changePreview(){
+				$(".btndiv").show();
+	 		    var url_ms = $("input[name='wms']").val();//微软预览方式
+                var way_365 = $("input[name='w365']").val();//微软预览方式
+                var myUrl = parseURL(way_365);
+	    		var _365Url =  myUrl.protocol+"://"+myUrl.host;
+	    		if(myUrl.port){
+	    		  _365Url += ":"+myUrl.port;
+	    		}
+                // msUrl_ = "http://docviewer.mulinquan.com";
+				 var codepreviewurl = window.btoa("prewurl="+way_365+"&wms="+url_ms+"&errorMsg=error");
+                 var locationurl = _365Url+"/preview.html?"+codepreviewurl;
+                 window.location.href = locationurl;
+	 	}
+
+		function showPreviewMsg(){
+		
+		}
+
+	 	//自适应高度
+	 	function changeFrameHeight(){
+	 	    var ifm= document.getElementById("docViewer"); 
+	 	    ifm.height=document.body.clientHeight;
+	 	}
+		window.onresize=function(){  
+	 	  changeFrameHeight();  
+	 	}
+	 	
+	 	//根据内容改变iframe高度
+	 	function iframeAutoHeight(){  
+	 	    var iframe=document.getElementById("docViewer");  
+	 	    //浏览器类型判断
+	 	    if(navigator.userAgent.indexOf("MSIE")>0||navigator.userAgent.indexOf("rv:11")>0||navigator.userAgent.indexOf("Firefox")>0){  
+	 	        iframe.height=iframe.contentWindow.document.body.scrollHeight;  
+	 	    }else{  
+	 	        iframe.height=iframe.contentWindow.document.documentElement.scrollHeight;  
+	 	    }  
+	 	} 
+//url字符串解析
+
+function parseURL(url) {
+	        var a =  document.createElement('a');
+	        a.href = url;
+	        return {
+	            source: url,
+	            protocol: a.protocol.replace(':',''),
+	            host: a.hostname,
+	            port: a.port,
+	            query: a.search,
+	            params: (function(){
+	                var ret = {},
+	                    seg = a.search.replace(/^\?/,'').split('&'),
+	                    len = seg.length, i = 0, s;
+	                for (i;i<len;i++) {
+	                    if (!seg[i]) { continue; }
+	                    s = seg[i].split('=');
+	                    ret[s[0]] = s[1];
+	                }
+	                return ret;
+	            })(),
+	            file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+	            hash: a.hash.replace('#',''),
+	            path: a.pathname.replace(/^([^\/])/,'/$1'),
+	            relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+	            segments: a.pathname.replace(/^\//,'').split('/')
+	        };
+	    }
+
+var t1 = window.setInterval(showTip,1000);
+	 	function showTip(){
+	 		var docvalue = $($("#docViewer").get(0).contentWindow.document.body).find("#WACDialogText").html();
+            if(docvalue != undefined){
+			    if(docvalue.indexOf("很抱歉，遇到问题，无法打开此演示文稿。请重试。")>-1){
+					if(errorMsg != "error"){
+						changePreview();
+					}else{
+					   showPreMsg()
+					}
+					
+				 }
+				  //很抱歉，出现问题，无法打开此文档。如果此情况持续发生，请尝试在 Microsoft Word 中打开文档。
+				 if(docvalue.indexOf("很抱歉，出现问题，无法打开此文档。如果此情况持续发生，请尝试在 Microsoft Word 中打开文档。")>-1){
+					 if(errorMsg != "error"){
+						changePreview();
+					}else{
+					   showPreMsg()
+					}
+				 }
+				  //很抱歉，出现问题，无法打开此PDF。如果此情况持续发生，请尝试在 Microsoft Word 中打开PDF。
+                      if(docvalue.indexOf("很抱歉，出现问题，无法打开此PDF。如果此情况持续发生，请尝试在 Microsoft Word 中打开PDF。")>-1){
+						if(errorMsg != "error"){
+						changePreview();
+					}else{
+					   showPreMsg()
+					}
+					 }
+				//很抱歉，Word Web App 打开此文档时遇到问题。 要查看此文档，请在 Microsoft Word 中打开它。
+                    if(docvalue.indexOf("很抱歉，Word Web App 打开此文档时遇到问题。 要查看此文档，请在 Microsoft Word 中打开它")>-1){
+						 
+						 if(errorMsg != "error"){
+						changePreview();
+					}else{
+					   showPreMsg()
+					}
+					 }
+					 //很抱歉，Word Web App 打开此文档时遇到问题。 要查看此文档，请在 Microsoft Word 中打开它。
+                    if(docvalue.indexOf("很抱歉")>-1 || docvalue.indexOf("遇到问题")>-1 || docvalue.indexOf("无法打开")>-1 || docvalue.indexOf("出现问题")>-1){
+						 
+						 if(errorMsg != "error"){
+						changePreview();
+					}else{
+					   showPreMsg()
+					}
+					 }
+			 }
+
+            //无法打开此工作簿
+			var errorTxt = $($("#docViewer").get(0).contentWindow.document.body).find("#errorText").html();
+			if(errorTxt != undefined){
+				if(errorTxt.indexOf("无法打开此工作簿")>-1 || errorTxt.indexOf("很抱歉")>-1 || errorTxt.indexOf("遇到问题")>-1 || errorTxt.indexOf("无法打开")>-1 || errorTxt.indexOf("出现问题")>-1 ||errorTxt.indexOf("问题")>-1 ){
+					 if(errorMsg != "error"){
+						changePreview();
+					}else{
+					   showPreMsg()
+					}
+				 }
+			}
+
+            var isShow = $(".btndiv").css("display");
+            if(isShow == "block"){
+            	window.clearInterval(t1);
+            }
+	 	}
+
+		 setTimeout(showTip_,5000);
+		 function showTip_(){
+		  var isShow = $($("#docViewer").get(0).contentWindow.document.body).find("#load_back").css("display");
+		  if(isShow == "block"){
+            	
+				changePreview();
+            }
+
+		 }
+
+		 function showPreMsg(){
+			 $(".btndiv").show();
+		   $(".tip_font").html("当前文档为空或者错误，不可在线预览，可尝试下载后打开");
+           $("#btnclose").show();
+		 }
+		 
+	</script>
+<style type="text/css">
+ body {overflow: hidden;}
+.btndiv {    
+    position:absolute;
+    top: 50%;
+    left: 50%;
+	margin-left: -189px; margin-top: -62px; }
+.stat-tip{padding:10px 15px;}
+.alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1;}
+.alert{padding: 15px;    margin-bottom: 20px;    border: 1px solid transparent;border-radius: 4px;}
+.mv-20 {
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
+	height:auto !important;
+	min-height:130px;
+	width:400px; 
+}
+.button {
+			outline: none;
+			cursor: pointer;
+			text-align: center;
+			text-decoration: none;
+			font: 16px/100% 'Microsoft yahei',Arial, Helvetica, sans-serif;
+			-webkit-border-radius: .5em;
+			-moz-border-radius: .5em;
+			border-radius: .3em;
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+			-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+			box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+			display: inline-block;
+
+		}
+		.button:hover {
+			text-decoration: none;
+		}
+		.button:active {
+			position: relative;
+			top: 1px;
+		}			
+	 	/* white */
+		.white {
+		        
+				color: #5d5b5b;
+				font-size: 14px;
+				padding: 8px 20px;
+				text-align: center;
+				width: 30px;
+				height: 15px;
+				border: solid 1px #cacaca;
+				background: #fff;
+				background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+
+		}
+		.white:hover {
+			background: #ededed;
+			background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+			background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+		}
+		.white:active {
+			color: #999;
+			background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+			background: -moz-linear-gradient(top,  #ededed,  #fff);
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+		}
+		.viewbtn{
+			    position: absolute;
+				right: 5%;
+				top: 58%;
+				margin-top: 8px;
+		 }
+		 .tip_font{
+		 	position: absolute;
+			font-size: 16px;
+			margin-left: 50px;
+		 }
+		 h3{
+		  margin: 10px 5px;
+		 }
+		 .changeBtn{
+		   position: fixed;
+			 margin-left: 92%;
+			margin-top: 47%;
+		 }
+ </style>
+</HEAD>
+<BODY style="margin:0px;">
+    <input type="hidden" name = "w365"/>
+    <input type="hidden" name = "wms"/>
+     <div class="btndiv alert stat-tip alert-info mv-20" style="display: none;    margin-top: -80px !important; margin-left: -207px;">
+	    <h3><font color="red">提示：</font></h3>
+		<div class="tip_font">
+		   文档预览正在生成中，请稍等...
+		</div>
+		<a href="#" class="button white" onclick="window.close();" style="display: none" id="btnclose">关闭</a> 
+	</div>
+	<a  class="changeBtn button white " onclick="changePreview();" title = '若预览失败，可切换其他方式预览'>切换</a>
+	<iframe id="docViewer" width="100%" height="100%" allowtransparency = "yes" marginwidth="0" marginheight="0" frameborder="0" src="#" style="border: 0px solid;"  scrolling="yes">
+	</iframe>
+</BODY>
+       
+</HTML>

@@ -1,0 +1,57 @@
+/*=======bootstrap部分样式仿写=========*/
+.bootstrap-select select {
+    -webkit-user-modify: read-only;
+}
+.bootstrap-select.btn-group{
+    position: relative;
+}
+.bootstrap-select button {
+    display: block;
+    padding: 9px 12px;
+    line-height: 16px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    white-space: nowrap;
+    border-radius: 3px;
+    background: none;
+    border: none;
+    color: #333;
+}
+.bootstrap-select .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+.bootstrap-select .btn .caret {
+    margin-left: 0;
+}
+.bootstrap-select .filter-option{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.bootstrap-select .dropdown-menu,
+.bootstrap-select input,
+.bootstrap-select.btn-group.hide {
+  display: none !important;
+}
+.bootstrap-select > .dropdown-toggle {
+    width: 100%;
+    padding-right: 25px;
+    font-size: 15px;
+}
+/* .bootstrap-select button.disabled { */
+/*     color: #d8d8d8; */
+/* } */
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+  position: absolute;
+  top: 17px;
+  right: 12px;
+}

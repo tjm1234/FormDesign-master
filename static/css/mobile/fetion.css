@@ -1,0 +1,6 @@
+body[third-party="fetion"] .data-loading:after{
+    background-image: url(/static/img/mobile/global/loading_white_fetion.png);
+}
+body[third-party="fetion"] .fetion__hide{
+    display: none!important;
+}

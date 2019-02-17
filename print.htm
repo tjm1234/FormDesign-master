@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="en" class="src-allow" xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>我的表单</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="format-detection" content="telephone=no">
+
+
+<meta http-equiv=Content-Type content="text/html; charset=unicode">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]-->
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/smartheer.ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/plugins.min.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/font-icons.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/scrollbar.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/bootstrap.pnotify.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/bootstrap.datetimepicker.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/form-view.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/form-select.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/form.smartheer.fix.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/form-typeahead.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/org.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/jquery.fancybox.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/comment.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/jquery.face.css" />
+<link type="text/css" rel="stylesheet" href="/FormDesign-master3/static/css/form-mockup.css" />
+<script type="text/javascript">
+    var _host = 'http://'+window.location.host +'/FormDesign-master3';
+   if(navigator.appName == "Microsoft Internet Explorer"&&parseInt(navigator.appVersion.split(";")[1].replace(/[ ]/g, "").replace("MSIE",""))<=9){
+        window.location.href=_host+'/IEerror.html';
+    }
+
+</script>
+<style type="text/css" rel="stylesheet">
+		html,body {
+			min-width:1024px
+		}
+	</style>
+
+</head>
+<body class="filterSlip_js print-page">
+<div id="print-toolbar" class=" js_toolbar">
+	<div class="grid-1000 print-toolbar-wrap">
+		<!-- <div id="printFont" class="changeFont fr hide"><span class="mr-5">字号:</span><a font-item="big">大</a><a font-item="medium">中</a><a font-item="small">小</a>
+		</div> -->
+		<!-- <div id="sliderPrintFont" class="print-fontsize-slider">
+			<div class="label">字号：</div>
+			<div class="eui-slider">
+				<div id="flowslider"></div>
+			</div>
+		</div>
+		 -->
+		<!-- <div id="sliderPrintLine" class="print-linecolor-slider mr-20">
+			<div class="label">线条颜色：</div>
+			<div class="eui-slider">
+				<div id="lineslider"></div>
+			</div>
+		</div> -->
+		
+        <a class="btn btn-sm btn-success print-preview-btn mr-10 js_print"><i class="glyphicon icon-print"></i>打印</a>
+        <a class="btn btn-sm btn-warning mr-10 js_pdf"><i class="glyphicon icon-download"></i>导出PDF</a>
+		<a class="btn btn-sm btn-info mr-10 js_word"><i class="glyphicon icon-download"></i>导出word</a>
+		<label class="checkbox-inline"><input type="checkbox" checked="checked" class="js_printcomment">打印日志</label>
+		<label class="checkbox-inline "><input type="checkbox" class="js_device_NeedlePrinter">为针式打印机</label>
+		<label class="checkbox-inline" id="js_maxPrintDiv"><input type="checkbox" class="js_maxPrint">全屏显示</label>
+		<!-- <label class="checkbox-inline" id="js_printDeviderDiv"><input type="checkbox" class="js_printDvider">打印分页线</label> -->
+		<label class="hide" id="printTempId"></label>
+		<div class="btn-group border-group dropdown dropdown-menu-toggle hide">
+             <a class="btn btn-xs dropdown-toggle"><i class="icon-paragraph-justify"></i><i class="icon-caret-down"></i></a>
+             <ul class="dropdown-menu border-dropdown border-dropdown-menu dropdown-menu-right j_print_border">
+                 <li class="border-1 active" index='1'><a></a></li>
+                 <li class="border-2" index='2'><a></a></li>
+                 <li class="border-3" index='3'><a></a></li>
+                 <li class="border-4" index='4'><a></a></li>
+                 <li class="border-5" index='5'><a></a></li>
+                 <li class="border-6" index='6'><a></a></li>
+             </ul>
+         </div>
+	</div>
+</div>
+<div id="print" class="grid-1000 mb-30 slider-linecolor-7">
+	<div class='module-detail-view eform-datareport-view'>
+	<h1 class="hide">1234</h1>
+    <div id="form-preview" class="form-preview clearfix">
+                <a id="localip" style="display:none;"></a>
+                <a id="netip" style="display:none;"></a>
+                <input type="hidden" id="formId" value="4533136354637261015">
+                <input type="hidden" id="dataId" value="">
+                <input type="hidden" id="taskId" value="22222">
+                <input type="hidden" id="isExtDist" value="true">
+                <input type="hidden" id="scanReport" value="scanReport">
+                <input type="hidden" id="printDatas" value="">
+                <textarea id="filterName" class="hide">1234</textarea>
+                <textarea id="filterDescription" class="hide"></textarea>
+                <div class="preview-box j_form_preview">
+                    <div class="form-view" style='width:100%;margin: 5px 0;'>
+                        <div class="form-head">
+                           
+                            <p class="form-name"></p>
+                            <div class="form-description"></div>
+                        </div>
+                        <div id="widget-control" class="widget-control form-view_js"></div>
+                        
+                    </div>
+
+                    <div id="datareport-info">
+                        <div class="detail-block j_extend">
+                            
+                            <div class="right-panel extend-panel">
+                                <div class="detail-tab  clearfix">
+                                    <ul>
+                                        <li class="extend-panel-toggle active">
+                                            操作日志
+                                        </li>
+                                     
+                                    </ul>
+                                </div>
+                                <div class="stream-wrapper">
+                                    <div class="stream-container p-15">
+
+                                        <table class="table table-bordered table-striped" style='margin-bottom: 0px; '>
+                                            <thead>
+                                                <tr>
+                                                    <th class='success'>
+                                                        <span class="bold">节点</span>
+                                                    </th>
+                                                    <th class='success'>
+                                                        <span class="bold">操作人</span>
+                                                    </th>
+                                                    <th class='success'>
+                                                        <span class="bold">操作时间</span>
+                                                    </th>
+                                                    <th class='success'>
+                                                        <span class="bold">审核结果</span>
+                                                    </th>
+                                                    <th class='success'>
+                                                        <span class="bold">审批意见</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>填报</td>
+                                                    <td>梨花</td>
+                                                    <td>2018-08-15 14:44:07</td>
+                                                    <td><span class='c-success'>通过</span></td>
+                                                    <td>提交数据成功</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>填报</td>
+                                                    <td>梨花2</td>
+                                                    <td>2018-08-15 14:44:07</td>
+                                                    <td><span class='c-warning'>待处理</span></td>
+                                                    <td>提交数据成功</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>填报</td>
+                                                    <td>梨花2</td>
+                                                    <td>2018-08-15 14:44:07</td>
+                                                    <td><span class='c-danger'>不通过</span></td>
+                                                    <td>提交数据成功</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    
+                                </div>
+
+
+                                
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                 </div>
+    </div>
+            
+</div>
+
+</div>
+<script type="text/javascript">
+var _host = 'http://'+window.location.host +'/FormDesign-master3';
+    var _formDesign = _host;
+</script>
+<script src="/FormDesign-master3/static/js/libs.js"></script>
+<script src="/FormDesign-master3/static/js/plugins.js?v=1.1"></script>
+<script type="text/javascript" src="/FormDesign-master3/static/js/plugins/html2canvas.js"></script>
+<script type="text/javascript" src="/FormDesign-master3/static/js/plugins/jsPdf.debug.js"></script>
+
+<script type="text/javascript" src="/FormDesign-master3/static/js/plugins/FileSaver.js"></script>
+<script type="text/javascript" src="/FormDesign-master3/static/js/plugins/jquery.wordexport.js"></script>
+<script type="text/javascript">
+    
+
+    var smartheerID = '',
+        jsonfile = ".json";
+    var crmContext = {
+        "officewebUrl":""    //   office 预览地址 备用
+    };
+    var TEAMS = {
+        "ajaxMethod": "get",
+        "mobileformview":_host+"/mobile/mobileformview.htm",    //  手机预览
+        "gallery":_host+"/gallery.htm",  //  图片查看
+        "api":{
+            "remoteDownloadUrl":_host+"/onetable/a/remote/download/",  // 附件下载地址
+            "downImgUrl": _host+"/onetable/a/remote/previewremote/img",   // 图片下载地址
+            uploadImage:_host+"/freeform/uploadImage"+jsonfile, // 上传图片
+            uploadRemote:_host+"/freeform/uploadremote"+jsonfile, // 上传附件
+            findFileObj:_host+"/freeform/findFileObj"+jsonfile,   //  findFileObj
+            findSourcetable:_host+"/freeform/datasources/findSourcetable"+jsonfile,   //  findSourcetable
+            queryDataSourcesByTemplate:_host+"/freeform/datasources/queryDataSourcesByTemplate"+jsonfile, //queryDataSourcesByTemplate
+            initTemplate:_host+"/freeform/datasources/initTemplate"+jsonfile, //initTemplate
+            queryDateDetailsByDetails:_host+"/freeform/datasources/queryDateDetailsByDetails"+jsonfile, //queryDateDetailsByDetails
+            queryDataListByLayout:_host+"/freeform/datasources/queryDataListByLayout"+jsonfile, //queryDataListByLayout
+            queryDataTemplateById:_host+"/freeform/datasources/queryDataTemplateById"+jsonfile, //queryDataTemplateById
+            editDataSources:_host+"/freeform/datasources/editDataSources"+jsonfile, //editDataSources
+            suggestion:_host+"/freeform/suggestion"+jsonfile, //suggestion
+            save:_host+"/freeform/save"+jsonfile, // 保存设计器设计界面
+            findPreviewFrom:_host+"/freeform/findPreviewFrom"+jsonfile, // 预览查询
+            getFormId:_host+"/freeform/getFormId"+jsonfile, // formID
+            datatable:_host+"/freeform/datatable", // datatable
+            saveData:_host+"/freeform/saveData"+jsonfile, // 填报保存
+            findFormData:_host+"/freeform/findFormData"+jsonfile, // 填报查询
+            checkUnique:_host+"/freeform/checkUnique"+jsonfile, // 验证
+            findDeleteField:_host+"/freeform/findDeleteField"+jsonfile, // findDeleteField
+            findFormData:_host+"/freeform/findFormData"+jsonfile, // findFormData
+            findFormDatas:_host+"/freeform/findFormDatas"+jsonfile, // findFormDatas
+            queryFormFieldsByFormId:_host+"/freeform/queryFormFieldsByFormId"+jsonfile, // queryFormFieldsByFormId
+            findCommonField:_host+"/freeform/findCommonField"+jsonfile, // findCommonField
+        },
+        "service": {
+            "base": _host,
+            "crm": _host + "/crmapp",
+            "flow": _host + "/flowapp",
+            "form": _host,
+            "formreport": _host + "/formapp",
+            "crmextapp": _host + "/crmextapp",
+            "baseUrl" : _host + "/freeform"
+        },
+        "perLang": "zh_CN"
+    };
+</script>
+<script type="text/javascript">
+    
+    window.lang_v = "";
+    //服务器环境
+    var langType = 'zh_CN';
+    document.body.setAttribute('auto-lang',langType);
+        document.body.setAttribute('e-lang','cn');
+        seajs.config({base:TEAMS.service.form+"/static/js",
+            vars:{"lang":""},
+            paths : {
+                "form" : TEAMS.service.form+"/static/js/form",
+                "formtpl" :TEAMS.service.form+"/static/template"
+            },
+            preload:["form.js","formeditor.js"],
+            charset:"utf-8",debug:!1}),
+            seajs.use("form/formpreview");
+    
+</script>
+
+
+
+</body>
+</html>

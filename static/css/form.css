@@ -1,0 +1,2711 @@
+@charset "utf-8";
+/*reset*/
+html, body {
+    height: 100%;
+    min-width:1280px;
+   /* overflow:hidden;*/
+}
+/*==================================================
+   表单自定义字段页面基本布局
+==================================================== */
+.header {
+	height:46px;
+	background-color:#2aaedd;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	/*min-width:600px;*/
+}
+.wrapper {
+	overflow-y:hidden;
+	overflow-x:auto;
+	height:100%;
+	top:46px;
+	left:0;
+	position:fixed;
+}
+
+.wrapper-content{
+	overflow-y:hidden;
+}
+.form-design {
+	position:relative;
+    z-index: 9;
+}
+.form-widget {
+	float:left;
+	width:292px;
+	background:#fff;
+}
+.form-widgetEdit {
+ 	position:absolute; 
+ 	bottom:0; 
+ 	right:0;
+ 	top:0; 
+ 	left:1092px;
+ 	min-width:270px;
+ 	background:#fff; 
+    z-index: 99;  
+}
+.scroll-wrapper {
+	overflow:hidden;
+}
+
+@media (max-width:1399px) {
+    .form-lead{
+        padding:0 0 0 5px;
+    }
+    .form-widget {
+        width:175px;
+    }
+    /*.form-widgetEdit {
+        left:1028px;
+    }*/
+    .form-lead-tab li a{
+        padding:0 10px;
+        font-size: 12px;
+    }
+    
+}
+
+
+@media  only screen and (min-width: 1400px){
+	.form-widget {
+		width:255px;
+	}
+	.form-widgetEdit {
+		left:1170px;
+	}
+    .widget-item{
+        width: 33% !important;
+    }
+}
+@media (min-width: 1600px){
+    .form-widget {
+        width:300px;
+    }
+    .form-widgetEdit {
+        left:1320px;
+    }
+    .widget-item{
+        width: 33% !important;
+    }
+    .form-design .form-view {
+        width: 1000px !important;
+    }
+}
+@media (min-width: 1900px){
+	.form-widget {
+		width:500px;
+	}
+	.form-widgetEdit {
+		left:1520px;
+	}
+    .widget-item{
+        width: 33% !important;
+    }
+    .form-design .form-view {
+        width: 1000px !important;
+    }
+}
+
+@media (min-width: 2200px){
+    .form-widget {
+        width:600px;
+    }
+    .form-widgetEdit {
+        left:1820px;
+    }
+    .widget-item{
+        width: 33% !important;
+    }
+    .form-design .form-view {
+        width: 1200px !important;
+    }
+}
+
+.page-animation{
+	transform: perspective(1000px) rotateY(180deg);
+	transform-origin: 50% 50% 0px;
+	transition:all 2s ease;
+}
+/*==========头部===========*/
+.header .logo {
+	height:100%;
+	width:140px;
+	margin:0 0 0 15px;
+}
+.header .logo a {
+	height:100%;
+	display:block;
+	background:url("/FormDesign-master3/static/img/logo_light.png") no-repeat left center;
+}
+body[third-party="fetion"] .header .logo a {
+	background-image: url('/FormDesign-master3/static/img/logo_light.png');
+}
+.header h1 {
+	color:#fff;
+	margin:13px 30px 0 13px;
+	font-weight:700;
+}
+.userbtns {
+	margin:10px 20px 0 0;
+	position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.userbtns .btn {
+	min-width:70px;
+	height:26px;
+	padding-top:3px;
+	padding-bottom:5px;
+}
+.userbtns .btn+.btn {
+	margin-left:10px;
+}
+
+.userbtns .btn-form-light{
+	border-color: #fff;
+	color:#2aaedd;
+}
+.userbtns .btn-form-hole{
+	border-color:#fff;
+	color:#fff;
+	background:none;
+}
+.userbtns .btn-form-light:hover,
+.userbtns .btn-form-hole:hover{
+	background:#3ac1f1;
+	border-color: #baedff;
+	color:#fff;
+}
+
+
+/*=============公用样式============*/
+
+.form-lead {
+	padding:0 0 0 10px;
+	/*background-color:#e5f0f9;*/
+	line-height:40px;
+	font-size:14px;
+	font-weight:bold;
+	border-bottom:1px solid #f0f0f0;
+}
+.form-lead-tab {
+	z-index:1;
+	font-size:0;
+	line-height:24px;
+}
+.form-lead-tab li {
+	display:inline-block;
+}
+.form-lead-tab li+li{
+	margin-left:4px;
+}
+.form-lead-tab li a {
+    padding: 0 12px;
+    display: block;
+    color: #858087;
+    font-size: 14px;
+    height: 35px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    line-height: 34px;
+}
+.form-lead-tab li a.active{
+	border-color:#4bcaeb;
+}
+.form-lead-tab li a:hover,
+.form-lead-tab li a.active {
+	color:#4bcaeb;
+}
+
+.widget-list-left .mCSB_container{
+	padding:0 0 100px 0;
+}
+.edit-widget .mCSB_container{
+	padding:0 0 220px 0;
+}
+
+/*==================================================
+   控件设置
+==================================================== */
+
+/*===========选择控件===========*/
+.form-widget {
+	position:relative;
+	border-right:1px solid #ccc;
+    min-height: 100%;
+}
+.form-widget .widget-list {
+	margin:15px 0 0;
+	overflow-y:auto;
+    border-left: 1px solid #bfbfbf; 
+}
+.widget-item:nth-child(1),
+.widget-item:nth-child(2),
+.widget-item:nth-child(3){border-top: 1px solid #bfbfbf; }
+.widget-item {
+    border: 1px solid #bfbfbf;
+    padding: 5px 15px;
+    cursor:move;
+	-webkit-transition: background ease-in-out 0.15s;
+	-moz-transition: background ease-in-out 0.15s;
+	transition: background ease-in-out 0.15s;
+	background-color:#f5f5f5;
+	position:relative;
+	z-index:100;
+}
+
+.widget-item {
+    float: left;
+    width: 83px;
+    height: 53px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-left: 0;
+    border-top: 0;
+    color: #545454;
+    min-height: 30px;
+}
+.widget-item:nth-child(3n){
+   border-right: 1px solid #bfbfbf; 
+}
+
+.del-widget-list .widget-item {
+    cursor: default;
+    border-color: #bbb;
+    position: relative;
+}
+.del-widget-list .widget-item span{
+   color: #bbb;
+}
+.del-widget-list .widget-item span.name {
+    display: block;
+    margin: 0 30px 0 0;
+}
+.del-widget-list .widget-item span.field-back {
+    color: #666;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+.widget-list .widget-item:hover {
+    background-color: #d0e2f3;
+    border-color: #57a5ca;
+    border-style: solid;
+}
+.del-widget-list .widget-item:hover{
+	background-color:#f5f5f5;
+    border-color: #999;
+    border-style: dashed;
+    cursor:pointer;
+}
+.del-widget-list .widget-item .field-back:hover,
+.del-widget-list .widget-item .field-back:active{
+	color:#57a5ca;
+}
+
+.widget-item > span {
+	line-height:30px;
+	display:inline-block;
+	vertical-align:top;
+	color:#666;
+}
+.widget-item > span.title {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right:0;
+    text-align: center;
+    font-size: 12px;
+}
+.widget-item span.widgetMark,
+.widget-item span.widgetDele {
+    position: absolute;
+    font-size: 16px;
+    right: 0;
+    top: 3px;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+.widget-item span.widgetMark .icon-caret-down {
+	margin-right:3px;
+}
+.widget-layout .widget-item span.widgetMark {
+	height:16px;
+	width:16px;
+	margin-top:5px;
+    left: 50%;
+    margin-left: -8px;
+	background:url(/FormDesign-master3/static/img/icon-widget-layout.png) no-repeat;
+}
+.widget-layout .widget-item span.widgetMark.layout-2{
+	background-position:0 -32px;
+}
+.widget-layout .widget-item span.widgetMark.layout-1{
+	background-position:0 -16px;
+}
+.widget-layout .widget-item span.widgetMark.layout-databox{
+	background-position:0 -0px;
+}
+.widget-layout .widget-item span.widgetMark.layout-datatable{
+    background-position:0 -48px;
+}
+.widget-layout .widget-item span.widgetMark.layout-tabcontrol{
+    background-position:0 -64px;
+}
+/*=========表单控件设置===========*/
+.form-widgetEdit {
+	border-left:1px solid #ddd;
+}
+.form-Edit-content {
+	padding:20px 15px;
+}
+.form-widgetEdit-content .form-group > .controls {
+	margin-left:15px;
+}
+.form-widgetEdit-content .form-group > label {
+	font-size:14px;
+	color:#666;
+}
+.form-Edit-content .form-group .control-group>label {
+    font-size: 12px;
+    color: #999;
+}
+.form-Edit-content .form-group .radio-inline+.radio-inline, 
+.form-Edit-content .form-group .checkbox-inline+.checkbox-inline {
+       margin-left: 0px;
+}
+.form-Edit-content .form-group .radio-inline, 
+.form-Edit-content .form-group .checkbox-inline {
+    margin-right: 10px;
+}
+.form-Edit-content .form-group .radio-inline:last-child, 
+.form-Edit-content .form-group .checkbox-inline:last-child {
+    margin-right: 0px;
+}
+.form-Edit-content .form-group-xaixs {
+    position: relative;
+    overflow: hidden;
+}
+.form-Edit-content .txaixs-choose {
+    width: 100%;
+    float: right;
+    margin-top: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+.form-Edit-content .txaixs-choose .tips {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+    margin-left: 5px;
+}
+.form-Edit-content .txaixs-choose>label {
+    padding-right: 20px;
+}
+.form-Edit-content .txaixs-choose:before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    background: #ddd;
+    top: -10px;
+    bottom: 14px;
+    left: 0px;
+}
+.form-Edit-content .txaixs-choose-child{
+	position:relative;
+}
+.form-Edit-content .txaixs-choose-child:after {
+    position: absolute;
+    content: "";
+    height: 1px;
+    background: #ddd;
+    left: -25px;
+    top: 50%;
+    z-index: 0;
+    width: 25px;
+}
+.form-Edit-content .form-group-xaixs .group-add,
+.form-Edit-content .form-group-xaixs .group-minus {
+    position: absolute;
+    font-size: 18px;
+    top: 0;
+    right: 0;
+    color: #c8c8c8;
+    cursor: pointer;
+}
+.form-Edit-content .form-group-xaixs .group-minus {
+    top: -4px;
+}
+.form-Edit-content .group-xaixs-date {
+    position: relative;
+}
+.form-Edit-content .group-xaixs-date>div {
+    padding-right: 61px;
+    width: 100%;
+}
+.form-Edit-content .group-xaixs-date>select {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 56px;
+}
+
+.form-Edit-content .form-group-hasli {
+    position: relative;
+}
+.form-Edit-content .form-group-moreli>ul>li {
+    position: relative;
+    padding-right: 40px;
+    margin-bottom: 20px;
+}
+.form-Edit-content .form-group-moreli>ul>li .form-group:last-child {
+    margin-bottom: 5px;
+}
+.form-Edit-content .form-group-moreli>ul>li>.field {
+    border: 1px solid #e4e4e4;
+    padding: 12px;
+}
+.form-Edit-content .form-group-hasli .group-add {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    color: #c8c8c8;
+    font-size: 18px;
+    cursor: pointer;
+}
+.form-Edit-content .form-group-hasli>label, 
+.form-Edit-content .form-group-hasli .opt{
+    display: none;
+}
+.form-Edit-content .form-group-moreli>label, 
+.form-Edit-content .form-group-moreli .opt {
+    display: inline-block;
+}
+.form-Edit-content .form-group-moreli .opt {
+    position: absolute;
+    right: 0px;
+    top: 31px;
+    color: #C1C1C1;
+    font-size: 0px;
+}
+.form-Edit-content .form-group-moreli .opt>span {
+    font-size: 14px;
+}
+.form-Edit-content .form-group-moreli .opt>span:first-child {
+    margin-right: 3px;
+}
+.form-Edit-content .serialnumber-group .entity-item-add {
+    color: #AFAFAF;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.form-Edit-content .serialnumber-group .link-help, 
+.form-Edit-content .serialnumber-group .setting-title {
+    display: block;
+    float: left;
+}
+.form-Edit-content .serialnumber-group .link-help {
+    color: #999;
+    margin: 1px 0 0 10px;
+}
+.form-Edit-content .serialnumber-group .link-help,
+.form-Edit-content .serialnumber-group .link-help:hover,
+.form-Edit-content .serialnumber-group .link-help:active,
+.form-Edit-content .serialnumber-group .link-help:visited{
+	text-decoration:none;
+}
+.form-Edit-content .serialnumber-group .controls select+select, 
+.form-Edit-content .serialnumber-group .controls select+input {
+    margin-left: 5px;
+}
+.form-Edit-content .serialnumber-group .controls select, 
+.form-Edit-content .serialnumber-group .controls input {
+    max-width: 115px;
+}
+.form-Edit-content .serialnumber-group .controls i {
+    color: #AFAFAF;
+}
+.form-Edit-content .serialnumber-group .controls {
+    margin-top: 5px;
+}
+.form-Edit-content .serialnumber-group .controls:first-child, 
+.form-Edit-content .serialnumber-group .controls:only-of-type {
+    margin-top: 0px;
+}
+.form-Edit-content h5{
+	margin:0;
+}
+.form-Edit-content h5+div{
+	margin-top:10px;
+}
+.form-Edit-content .edit-tips{
+	padding:10px 15px;
+}
+.form-widgetEdit .radio,
+.form-widgetEdit .checkbox {
+	margin-top:0;
+}
+.form-widgetEdit .radio input[type="radio"],
+.form-widgetEdit .radio-inline input[type="radio"]{
+	margin-top:1px;
+}
+.form-widgetEdit .checkbox>.item {
+    margin-bottom: 0px;
+    padding: 10px;
+    background: #f5f5f5;
+    margin: 5px 0 10px 5px;
+}
+.form-widgetEdit .checkbox .item>label+label {
+    margin-left: 10px;
+}
+.form-widgetEdit .checkbox>.item input {
+    vertical-align: -2px;
+    margin-right: 2px;
+}
+.form-widgetEdit .default-container{
+	margin-bottom:10px;
+}
+.form-Edit-content .form-relevance-list .employee-item {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 20px;
+    margin-right: 2px;
+}
+.form-Edit-content .form-relevance-list .employee-item a:first-child {
+    display: inline-block;
+    padding-right: 21px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-Edit-content .form-relevance-list .employee-item .close {
+    padding-right: 0px;
+    display: none;
+    line-height: 18px;
+    float: none;
+    vertical-align: top;
+    margin: 0 0 0 -16px;
+}
+.form-Edit-content .form-relevance-list .employee-item:hover .close {
+    display:inline-block;
+}
+.form-Edit-content .form-relevance-list .employee-item .close:hover{
+    color: red;
+}
+.form-Edit-content .form-relevance-list .engine-search {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 26px;
+    margin: 0;
+    padding: 3px;
+    position: relative;
+    width: 20px;
+}
+.form-Edit-content .form-relevance-list .engine-search i {
+    color: #0088cc;
+    font-size: 14px;
+    line-height: 18px;
+}
+.form-Edit-content .form-group .template-name {
+    margin-bottom: 5px;
+    position: relative;
+    height: 21px;
+    overflow: hidden;
+}
+.form-Edit-content .form-group .template-name>span {
+    display: inline-block;
+    vertical-align: top;
+}
+.form-Edit-content .form-group .template-name .txt {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.form-Edit-content .form-group .template-name .name {
+    max-width: 100%;
+    padding-left: 77px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*多选框设置*/
+.form-Edit-content .combo-opt-div {
+    width: 100%;
+    padding: 0 26px 0 16px;
+    margin-left: -5px;
+}
+.form-Edit-content .combo-opt-div>div {
+    float: left;
+    margin: 5px 0 0 0;
+    padding: 2px 5px;
+    text-align: left;
+}
+.form-Edit-content .combo-opt-div>div.other-link {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.form-Edit-content .combo-opt-div .dropdown>a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-Edit-content .combo-opt-div .dropdown-menu a {
+    position: relative;
+}
+.form-Edit-content .combo-opt-div .dropdown-menu a>* {
+    display: block;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+.form-Edit-content .combo-opt-div .dropdown-menu label>span {
+    width: 100%;
+    padding: 0 18px 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.form-Edit-content .combo-opt-div .dropdown-toggle>span {
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-Edit-content .combo-opt-div .dropdown-menu label>* {
+    display: inline-block;
+}
+.form-Edit-content .combo-opt-div .dropdown-menu label>input {
+    position: absolute;
+    top: 7px;
+    right: 20px;
+}
+@media (max-width:1340px){
+	.form-Edit-content .combo-opt-div>div {
+	    width: 30%;
+   }
+   .form-Edit-content .combo-opt-div>div.dropdown {
+	    width: 40%;
+	}
+}
+.form-Edit-content .form-group-flow span.delete-box,
+.form-Edit-content .form-group-task span.delete-box {
+    padding: 4px 3px;
+    color: #CACACA;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    z-index: 110;
+}
+.form-Edit-content .form-group-flow span.delete-box:hover,
+.form-Edit-content .form-group-task span.delete-box:hover {
+    color: #999;
+}
+.form-Edit-content .form-group-flow span.delete-box.hide,
+.form-Edit-content .form-group-task span.delete-box.hide {
+    visibility: hidden;
+}
+.form-Edit-content .form-group-flow .tt-suggestion p,
+.form-Edit-content .form-group-task .tt-suggestion p {
+    width:158px!important;
+}
+.form-Edit-content .form-group-date .check-config {
+    margin-top: 5px;
+}
+.form-Edit-content .form-group-date .check-config input {
+    width: 100px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.form-Edit-content .form-group-date .check-config>select {
+    width: 115px;
+}
+.form-Edit-content .form-group-date .check-config input+span {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+.form-Edit-content .form-group-date .check-config>select,
+.form-Edit-content .form-group-date .check-config>span {
+    vertical-align: top;
+}
+.form-Edit-content .form-group-date .check-config input.detail-time{
+    width: 140px;
+}
+@media (max-width:1366px){
+	.form-Edit-content .form-group-date .check-config>select {
+	    width: 105px;
+	    font-size: 12px;
+	}
+	.form-Edit-content .form-group-date .check-config input {
+	    vertical-align: middle;
+	    margin-left: 5px;
+	    font-size: 12px;
+	}
+	.form-Edit-content .form-group-date .check-config input.detail-time{
+	    width: 125px;
+	}
+}
+.choicelistEdit li + li{
+	margin-top:5px;
+}
+.choicelistEdit li > input:first-child {
+	margin:0 3px 0 0;
+}
+.choicelistEdit li > input,
+.choicelistEdit li > span{
+	display:inline-block !important;
+	vertical-align:middle;
+}
+.choicelistEdit li>.form-control {
+    width: 150px;
+    margin: 0 3px 0 3px;
+}
+.choicelistEdit li > input.hide,
+.choicelistEdit li > span.hide {
+	display:none !important;
+}
+.choicelistEdit li > span > i {
+    font-size: 14px;
+    color: #AFAFAF;
+}
+.choicelistEdit li.image-checkbox > span,
+.choicelistEdit li.image-radiobox  > span{
+	display:block;
+	float:right;
+}
+.choicelistEdit li.image-checkbox > span > i,
+.choicelistEdit li.image-radiobox  > span > i{
+	color:#E0483E;
+	display:none;
+	margin:7px 0 0 0;
+}
+.choicelistEdit li.image-checkbox,
+.choicelistEdit li.image-radiobox {
+    padding: 5px 10px;
+    margin: 0 2px 0 -10px;
+}
+.choicelistEdit li.image-checkbox:hover,
+.choicelistEdit li.image-radiobox:hover{
+	background:#eee;
+}
+.choicelistEdit li.image-checkbox:hover > span > i,
+.choicelistEdit li.image-radiobox:hover  > span > i{
+	display:block;
+}
+.choicelistEdit li.image-checkbox .img-box img, 
+.choicelistEdit li.image-radiobox .img-box img{
+    width: 35px;
+    height: 27px;
+}
+	width:150px;
+	margin:0 3px 0 3px;
+}
+@media(max-width:1600px){
+	.choicelistEdit li.image-checkbox .form-control, 
+	.choicelistEdit li.image-radiobox .form-control{
+	    width:140px;
+	}
+}
+@media(max-width:1440px){
+	.choicelistEdit li.image-checkbox .form-control, 
+	.choicelistEdit li.image-radiobox .form-control{
+	    width:120px;
+	}
+}
+@media(max-width:1366px){
+	.choicelistEdit li.image-checkbox .form-control, 
+	.choicelistEdit li.image-radiobox .form-control{
+	    width:100px;
+	}
+}
+
+.choicelistEdit li.input-otherchoice input{
+	width:142px;
+}
+.plus-othercheckbox-btn {
+	margin:10px 0 0 22px;
+	border-right:1px solid #428BCA;
+	padding-right:6px;
+	line-height:1;
+}
+.plus-othercheckbox-btn + .plus-othercheckbox-btn{
+	margin-left:5px;
+}
+.plus-othercheckbox-btn:last-child{
+	border:none;
+}
+@media (max-width:1280px){
+	.plus-othercheckbox-btn + .plus-othercheckbox-btn{
+		margin-left:3px;
+	}
+	.plus-othercheckbox-btn {
+		padding-right:3px;
+		font-size:12px;
+	}
+}
+.choicelistEdit>li {
+    font-size: 0px;
+    position: relative;
+    overflow: hidden;
+}
+.choicelistEdit>li>* {
+    font-size: 14px;
+}
+.choicelistEdit li.input-otherchoice input {
+    width: 100%;
+}
+
+.choicelistEdit .input-div {
+    width: 206px;
+    float: left;
+    padding: 0 35px 0 19px;
+}
+.choicelistEdit li.other-option .input-div > span {
+    display: inline-block;
+    height: 30px;
+    left: 16px;
+    line-height: 30px;
+    position: absolute;
+    width: 28px;
+}
+.choicelistEdit li.other-option .input-div>div {
+    width: 147px;
+    padding: 0 0 0 33px;
+    float: left;
+}
+.choicelistEdit li.other-option .input-div>div>input {
+    border-radius: 3px;
+}
+.choicelistEdit .opt-div {
+    position: static;
+    width: 38px;
+    margin: 4px 0 0 -42px;
+    right: auto;
+    display: inline-block;
+    height: 20px;
+    top: 8px;
+    color: #AFAFAF;
+}
+ .choicelistEdit .opt-div>span {
+    margin: 0 0 0 2px;
+    font-size: 14px;
+}
+.choicelistEdit .opt-div>span:first-child {
+    margin-left: 8px;
+}
+/*多级下拉框设置*/
+
+.comboselectEdit li {
+    position: relative;
+    overflow: hidden;
+}
+.comboselectEdit .combo-select, .comboselectEdit .combo-txt {
+    position: absolute;
+    left: 0;
+}
+.comboselectEdit .combo-select {
+    top: 8px;
+}
+.comboselectEdit .combo-txt {
+    top: 5px;
+}
+.comboselectEdit .txt-div {
+    padding-left: 33px;
+}
+.comboselectEdit li>.form-control, 
+.comboselectEdit .form-control {
+    margin: 0px;
+}
+.comboselectEdit li.combo-select-placeholder {
+    border: 1px dashed #FF7A8A;
+    display: inline-block;
+    width: 205px;
+    height: 31px;
+}
+.comboselectEdit .input-div {
+    display: inline-block;
+    padding: 0 0 0 16px;
+    width: 100%;
+}
+.comboselectEdit .input-div .input-group {
+    width: 100%;
+}
+.comboselectEdit .other-option .input-div {
+    padding: 0 35px 0 16px;
+}
+.comboselectEdit .other-option .opt-div {
+    position: absolute;
+    top: 2px;
+    right: 0px;
+}
+.comboselectEdit li.other-option .input-div > span {
+    display: inline-block;
+    height: 30px;
+    left: 16px;
+    line-height: 30px;
+    position: absolute;
+    width: 28px;
+}
+.comboselectEdit li.other-option .input-div>div{
+    width: 100%;
+    padding: 0 0 0 33px;
+    float: left;
+}
+.comboselectEdit li.other-option .input-div>div>input {
+    width: 100%;
+}
+.comboselectEdit-hasborder {
+    border: 1px solid #d5d5d5;
+    padding: 12px;
+}
+.choicelistEdit li .child-title {
+    width: 100%;
+    color: #999;
+    height: 24px;
+    margin-bottom: 5px;
+    line-height: 24px;
+}
+.comboselect-tab>li {
+    float: left;
+    overflow: hidden;
+    height: 27px;
+    line-height: 20px;
+}
+ul.comboselect-tab {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: -1px;
+}
+.comboselect-tab>li>a {
+    color: #666;
+    padding: 2px 10px;
+    display: inline-block;
+    border-top: 2px solid #fff;
+}
+.comboselect-tab>li>a:link,
+.comboselect-tab>li>a:hover,
+.comboselect-tab>li>a:focus,
+.comboselect-tab>li>a:active{
+	text-decoration:none;
+}
+ul.comboselect-tab>.active>a {
+    border-top: 2px solid #108EE9;
+    border-left: 1px solid #d5d5d5;
+    border-right: 1px solid #d5d5d5;
+    border-bottom: 1px solid #fff;
+}
+.comboselect-opt {
+    position: relative;
+    right: 0px;
+    top: 2px;
+}
+.comboselect-opt>* {
+    margin-top: 2px;
+}
+.comboselect-opt .dropdown {
+    padding: 0;
+    margin: 0;
+}
+.comboselect-opt>a, 
+.comboselect-opt .dropdown>a {
+    border-left: 1px solid #b2b2b2;
+    display: inline-block;
+    padding: 0 5px;
+}
+.comboselect-opt>a:nth-child(1) {
+    border-left: none;
+}
+.comboselect-opt>a.hide {
+    display: none;
+}
+.comboselect-opt>.dropdown {
+    padding-left: 5px;
+}
+.comboselect-opt .dropdown-menu a {
+    position: relative;
+}
+.comboselect-opt .dropdown-menu a>* {
+    display: block;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+.comboselect-opt .dropdown-menu label>* {
+    display: inline-block;
+}
+.comboselect-opt .dropdown-menu label>span {
+    width: 100%;
+    padding: 0 18px 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.comboselect-opt .dropdown-menu label>input {
+    position: absolute;
+    top: 7px;
+    right: 20px;
+}
+@media(max-width:1366px){
+	.comboselect-tab>li>a {
+	    padding: 2px;
+	}
+}
+
+/*分割线*/
+.dividerchoicelist > label {
+	display:block;
+}
+.dividerchoicelist .divider-line {
+	width:70%;
+	margin-left:10px;
+}
+/*============表单设置===============*/
+.form-tag > * {
+	margin-right:5px;
+}
+.form-tag .form-tagitem {
+	padding:2px 5px;
+	line-height:22px;
+	background-color:#CDE69C;
+	border:1px solid #A5D24B;
+	color:#666;
+}
+.form-tag .btn-removetag {
+	padding:0 2px;
+	font-size:16px;
+	cursor:pointer;
+}
+.form-tag .form-addtag {
+	padding:0 10px;
+	cursor:pointer;
+	border:1px dashed #A5D24B;
+	line-height:26px;
+}
+/* 图片控件默认图片 */
+.form-img-uploader{
+	font-size:0;
+	margin-left:-12px;
+}
+.form-img-uploader .img-item{
+	display:inline-block;
+	margin:0 0 12px 12px;
+	vertical-align:middle;
+	height:60px;
+	width:60px;
+	overflow:hidden;
+	position:relative;
+	border:1px solid rgba(0,0,0,0);
+}
+.form-img-uploader .img-item:hover{
+	border-width:#fff;
+	-webkit-box-shadow:0 0 3px rgba(0,0,0,0.3),0 0 0 2px #fff inset;
+	box-shadow:0 0 3px rgba(0,0,0,0.3),0 0 0 2px #fff inset;
+}
+.form-img-uploader .img-add{
+	text-align:center;
+	color:#999;
+	border:1px solid #ddd;
+	background:#f8f8f8;
+	padding-top:10px;
+	width:60px;
+	height:60px;
+	float:left;
+	position:relative;
+	z-index:2;
+	cursor:pointer;
+}
+.form-img-uploader .img-add i{
+	font-size:20px;
+}
+.form-img-uploader .img-add p{
+	font-size:12px;
+	margin-top:5px;
+}
+.form-img-uploader .img-opt {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+    padding: 0 3px;
+    margin: 0;
+}
+.form-img-uploader .img-item:hover .img-opt{
+	display:block;
+}
+.form-img-uploader .img-item .img-opt a {
+    display: block;
+    padding: 2px;
+    width: 20px;
+    height: 20px;
+}
+.form-img-uploader .img-item:hover .img-opt a{
+	text-decoration:none;
+}
+.form-img-uploader .img-item .img-opt a.delet{
+	color:#e80000 !important;
+}
+.form-img-uploader .img-item .img-opt a.cut {
+    color: #fff !important;
+    position: relative;
+    margin: 14px 0 0 0;
+}
+.form-img-uploader .img-item .img-opt .cut .background {
+    background-color: #000;
+    opacity: 0.5;
+    filter: Alpha(opacity=50);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    display: none;
+}
+.form-img-uploader .img-item:hover .img-opt .cut .background{
+	display:block;
+}
+.form-img-uploader .img-item .img-opt .cut .icon-crop {
+    position: absolute;
+    z-index: 1;
+}
+/*图片单选多选控件*/
+.form-img-uploaddata{
+	font-size:0;
+	margin-left:-12px;
+}
+.form-img-uploaddata .img-item{
+	display:inline-block;
+	margin:0 0 12px 12px;
+	vertical-align:middle;
+	height:60px;
+	width:auto;
+	overflow:hidden;
+	position:relative;
+	border:1px solid rgba(0,0,0,0);
+}
+.form-img-uploaddata .img-item:hover{
+	border-width:#fff;
+	-webkit-box-shadow:0 0 3px rgba(0,0,0,0.3),0 0 0 2px #fff inset;
+	box-shadow:0 0 3px rgba(0,0,0,0.3),0 0 0 2px #fff inset;
+}
+.form-img-uploaddata .img-add {
+    text-align: center;
+    color: #a0a0a0;
+    border: 1px dashed #ccc;
+    width: 100%;
+    height: 90px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+.form-img-uploaddata .img-add i {
+    font-size: 30px;
+    margin: 20px 0 10px;
+    display: inline-block;
+}
+.form-img-uploaddata .img-add p {
+    font-size: 12px;
+}
+.form-img-uploaddata .img-opt{
+	display:none;
+	position:absolute;
+	top:0;
+	right:0;
+	height:24px;
+	line-height:24px;
+	font-size:16px;
+	padding:0 3px;
+}
+.form-img-uploaddata .img-item:hover .img-opt{
+	display:block;
+}
+.form-img-uploaddata .img-item:hover .img-opt a{
+	color:#e80000 !important;
+	text-decoration:none;
+}
+/*图片裁剪弹出框*/
+.imagecut-modal .modal-dialog{
+	width:800px;
+}
+.imagecut-modal .module-help {
+    position: absolute;
+    top: 16px;
+    right: 40px;
+    cursor: pointer;
+}
+.imagecut-modal .modal-body {
+    position: relative;
+    padding: 15px;
+    max-height: 555px;
+    overflow: hidden;
+}
+.imagecut-modal .img-wrapper p, .imagecut-modal .img-preview-wrapper p {
+    color: #666;
+    margin: 0 0 5px 0;
+}
+.imagecut-modal .img-wrapper>div {
+    border: 1px solid #ddd;
+    max-height: 500px;
+    max-width: 500px;
+    min-height:200px;
+}
+.imagecut-modal .img-wrapper {
+    float: left;
+}
+.imagecut-modal .img-preview-wrapper {
+    margin-left: 618px;
+}
+.imagecut-modal .img-preview {
+    margin: 0px;
+    border: 1px solid #ddd;
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+.imagecut-modal .img-preview img {
+    width: 150px;
+    height: 100px;
+    position: relative;
+    max-width: none;
+}
+/*附件控件 */
+.file-input{
+	position:relative;
+	cursor:pointer;
+}
+.file-input .file-tip{
+	position:absolute;
+	line-height:28px;
+	font-size:12px;
+	color:#666;
+	left:12px;
+	top:0;
+	right:35px;
+}
+.file-input .file-ico{
+	display:inline-block;
+	position:absolute;
+	right:2px;
+	top:2px;
+	background:#A1A1A1;
+	color:#fff;
+	height:24px;
+	width:24px;
+	line-height:26px;
+	text-align:center;
+	border-radius:2px;
+}
+.file-input:hover .file-ico{
+	background:#8B8B8B;
+}
+.form-flie .file-info {
+    margin: 5px 0;
+}
+.form-flie .file-info .file-item{
+	vertical-align: middle;
+    padding: 0 15px 0 0;
+    background: #f8f8f8;
+    border: 1px solid #eaeaea;
+    padding-left: 12px;
+    border-radius: 3px;
+    margin-top: 3px;
+    line-height: 28px;
+}
+.form-flie .file-item a:not(.btn) {
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+}
+.form-flie .file-item:hover a:not(.btn){
+	color:#5d9cec;
+}
+.form-flie .file-item a.remoteDownload {
+    max-width: 350px;
+}
+.form-flie .file-item a.btn {
+    display: none;
+}
+.form-flie .file-item:hover a.btn{
+	display: inline-block;
+}
+.form-flie .file-item a.btn {
+    line-height: 1.5;
+    margin-left: 8px;
+    margin: 4px 0 0 5px;
+}
+.form-Edit-content .form-flie .file-info .file-item{
+    position: relative;
+}
+.form-Edit-content .form-flie .file-item a:first-child{
+    max-width: 100%;
+    padding: 0 60px 0 0;
+}
+.form-Edit-content .form-flie .file-item a.btn{
+    margin: 0 0 0 -55px;
+}
+.form-Edit-content .form-flie .file-item a.close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+/*=========表单区域操作============*/
+.field-active .widgetDele-btn,
+.field-active .widgetDele-bg {
+	display:block;
+}
+.widgetDele-bg {
+    height: 24px;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.5;
+    display: none !important;
+/*     不明确暂时注释 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+/* .widgetDele-btn { */
+/*     display:none; */
+/*     width: 24px; */
+/*     height: 24px; */
+/*     position: absolute; */
+/*     right: 0; */
+/*     top: 0; */
+/*     cursor: pointer; */
+/*     background-color: #D14836; */
+/*     font-size: 22px; */
+/*     text-align: center; */
+/*     font-weight: bold; */
+/*     color: #fff; */
+/*     line-height: 24px; */
+/*     z-index: 10; */
+/* } */
+.widgetDele-btn {
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    color: #d14836;
+    display: none;
+    cursor: pointer;
+    z-index: 10;
+}
+.form-layout-toolbar {
+	position:absolute;
+	bottom:0;
+	right:0;
+	z-index:100;
+	line-height:20px;
+	-webkit-transition: opacity linear 0.15s;
+	-moz-transition: opacity linear 0.15s;
+	transition: opacity linear 0.15s;
+}
+.form-view .form-layout .save-common-toolbar,
+ .form-view .form-databox-wrap .save-common-toolbar, 
+ .form-view .form-tablelayout-wrap .save-common-toolbar {
+    top: 0px;
+    bottom: initial;
+    right: 20px;
+}
+.form-layout-toolbar.save-common-toolbar {
+    display: none;
+}
+.field-active:hover .form-layout-toolbar.save-common-toolbar {
+    display: none;
+}
+.form-layout-toolbar span {
+    text-align: center;
+    margin-left: 1px;
+    color: #fff;
+    float: left;
+    padding: 0 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.form-layout-toolbar span i {
+	margin-right:3px;
+	position:relative;
+	top:1px;
+}
+.form-layout-toolbar .layoutDrag-btn {
+	cursor:move;
+	background:#3aa1f1;
+}
+.form-layout-toolbar .layoutDele-btn {
+	background:#fd5e60;
+}
+.form-layout-toolbar .addColum-btn {
+	background:#30bbcd;
+}
+.form-layout-toolbar .edit-btn {
+	background:#f7c338;
+}
+.form-layout-toolbar .savecommon-btn {
+    background:#52c953;
+}
+.form-view .back-to-edit {
+	position:absolute;
+	top:15px;
+	right:20px;
+}
+.form-edit-region{
+	border:1px solid rgba(0,0,0,0);
+}
+.form-view-wrapper:hover .form-edit-region {
+	position:relative;
+	border:1px solid #FD7F7F;
+}
+.form-view-wrapper:hover .form-edit-region:before {
+	line-height:24px;
+	background-color:#FD7F7F;
+	content:"表单编辑区";
+	color:#fff;
+	padding:0 10px;
+	position:absolute;
+	top:0;
+	right:0;
+	border-radius:0 0 0 10px;
+}
+
+.form-view-wrapper:hover .flow-content:before {
+    content:"审批表编辑区";
+}
+
+.edit .introjs-helperNumberLayer {
+	display:none;
+}
+
+
+
+/*顶部按钮*/
+.btn-lake {
+  color: #fff;
+  background-color: #4785e4;
+  border-color: #357ebd;
+}
+.btn-lake:hover,
+.btn-lake:focus,
+.btn-lake:active,
+.btn-lake.active{
+	color: #fff;
+	background-color: #3A77D5;
+  	border-color: #357ebd;
+}
+/*用户指引插件*/
+body.introjs-open{
+	position:fixed;
+	position:relative\9;
+	width:100%;
+	top:0;
+	left:0;
+}
+body.introjs-open .wrapper,
+body.introjs-open header{
+	position:absolute;
+	position:fixed\9;
+}
+.edit .introjs-autoheight{
+	height:auto !important;
+	border:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+/*批量编辑选项*/
+.modal.chooselist-batch .modal-body textarea{
+	min-height:300px;
+}
+.modal.chooselist-batch .modal-dialog{
+	width:400px;
+}
+
+/*更多*/
+.edit .center-more {
+    cursor: pointer;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+}
+.edit .center-more:hover {
+    background-color: #F2F2F2;
+}
+
+/*文本编辑器样式调整*/
+.edit .cke_chrome {
+	border:1px solid #ccc;
+}
+.edit .cke_top {
+	border-bottom:1px solid #ccc;
+	background-color:#fff;
+	background-image:none;
+}
+.edit .cke_bottom {
+	padding:0 8px 2px;
+	position:relative;
+	background-color:#fff;
+	background-image:none;
+	border:none;
+}
+.edit .cke_panel_grouptitle{
+	background-color:#ddd;
+	background-image:none;
+}
+.edit .cke_toolgroup {
+	border:1px solid #ccc;
+	border-radius:1px;
+	background-color:#f5f5f5;
+	background-image:none;
+}
+.edit .cke_button_on {
+	background-color:#ddd;
+	background-image:none;
+	-moz-box-shadow:0 0 1px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow:0 0 1px rgba(0,0,0,.3) inset;
+	box-shadow:0 0 1px rgba(0,0,0,.3) inset;
+}
+.edit a.cke_button_on:hover,.edit a.cke_button_on:focus,.edit a.cke_button_on:active{
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+.edit a.cke_button_off:hover,.edit a.cke_button_off:focus,.edit a.cke_button_off:active,.edit a.cke_button_disabled:hover,.edit a.cke_button_disabled:focus,.edit a.cke_button_disabled:active {
+	background-color:#eee;
+	background-image:none;
+}
+.edit .cke_combo_button {
+	border:1px solid #ccc;
+	-moz-border-radius:1px;
+	-webkit-border-radius:1px;
+	border-radius:1px;
+	background:#f5f5f5;
+	background-image:none;
+}
+.edit .cke_combo_off a.cke_combo_button:hover,.edit .cke_combo_off a.cke_combo_button:focus {
+	background-color:#eee;
+	background-image:none;
+}
+.edit .cke_combo_off a.cke_combo_button:active,.edit .cke_combo_on a.cke_combo_button {
+	background-color:#ddd;
+	background-image:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+.edit .cke_combo_on a.cke_combo_button:hover,.edit .cke_combo_on a.cke_combo_button:focus,.edit .cke_combo_on a.cke_combo_button:active {
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+.edit .cke_bottom {
+	padding-bottom:0
+}
+.edit .cke_combo_off a.cke_combo_button:active, .edit .cke_combo_on a.cke_combo_button {
+	background-color:#ddd;
+	border-color:#ccc;
+	background-image:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+.edit .cke_panel_grouptitle {
+	background-color:#ddd;
+	background-image:none;
+}
+/*文本编辑器*/
+.form-widgetEdit .cke_path {
+	display:none;
+}
+
+/*模块图标*/
+.graph,
+[class^="graph-16"],
+[class*=" graph-16"]{
+	background-image:url(/FormDesign-master3/static/img/form-icons.png);
+	background-repeat:no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+}
+.graph.hide{
+	display:none;
+}
+[class^="graph-16"],
+[class*=" graph-16"]{
+	height:16px;
+	width:16px;
+}
+.graph-16-pie{
+	background-position:-16px 0;
+}
+.graph-16-task{
+	background-position:-208px 0;
+}
+.graph-16-document{
+	background-position:-112px 0;
+}
+.graph-16-workflow{
+	background-position:-272px 0;
+}
+.graph-16-customer{
+	background-position:-256px 0;
+}
+.graph-16-contact{
+	background-position:-192px 0;
+}
+.graph-16-form{
+	background-position:-432px 0;
+}
+.graph-16-saleChance{
+	background-position:-368px 0;
+}
+.graph-16-calendar {
+  background-position: -400px 0;
+}
+.graph-16-production{
+	background-position:-464px 0;
+}
+.graph-16-complex{
+	background-position:-448px 0;
+}
+.graph-16-contract{
+	background-position:-480px 0;
+}
+/*选项型控件--显示设置*/
+.formcondition-modal .sch-wrapper .sch-group {
+    min-height:32px;
+    margin:0 0 10px 0;
+    position:relative;
+}
+.formcondition-modal .sch-wrapper .sch-group .common-tag {
+    float: left;
+    line-height: 24px;
+    margin: 0 10px 0 0;
+}
+.formcondition-modal .sch-wrapper .sch-group .common-tag>a:hover {
+    text-decoration:none;
+}
+.formcondition-modal .sch-wrapper .sch-group .common-tag>.text {
+    max-width: 100px;
+    margin: 0 20px 0 0;
+    float: left;
+}
+.formcondition-modal .sch-wrapper .sch-group .common-tag>.close {
+    margin: 0 0 0 -16px;
+    float: left;
+    line-height: 22px;
+}
+.formcondition-modal .sch-wrapper .sch-group .controls > *,
+.formcondition-modal .sch-wrapper .controls .inner-el > * {
+    float: left;
+    margin-right: 10px;
+}
+.formcondition-modal .sch-wrapper .sch-item{
+   	line-height: 30px;
+    padding-top: 0;
+    float: left;
+}
+.formcondition-modal .sch-wrapper .sch-group>.controls {
+    margin: 0 0 0 170px;
+    padding: 0 40px 0 0;
+    position: relative;
+}
+.formcondition-modal .sch-wrapper .fake-btn-box{
+	position:relative;
+}
+.formcondition-modal .sch-wrapper .fake-btn-box select{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+	width:80px !important;
+	opacity:0;
+}
+.formcondition-modal .sch-wrapper .fake-btn-box select option{
+	line-height:24px;
+}
+.formcondition-modal .sch-wrapper .sch-item> select.form-control { 
+    width: 156px;
+}
+.formcondition-modal .sch-wrapper .sch-item > a {
+    vertical-align: top;
+}
+.formcondition-modal .sch-wrapper .sch-group select.form-control,
+.formcondition-modal .sch-wrapper .sch-group select > option{
+	padding: 4px;
+    vertical-align: top;
+}
+.formcondition-modal .sch-wrapper .sch-item-period input{
+	width:100px;
+	padding:5px 10px;
+}
+.formcondition-modal .sch-wrapper .cdts-addmem-wgt .add-btn{
+	background:#fff;
+}
+.formcondition-modal .sch-wrapper .open.cdts-addmem-wgt .add-btn{
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:0;
+	border-bottom:none;
+	border-color:#a3adba;
+}
+.formcondition-modal .sch-item .dropdown-content {
+    width: auto;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    margin: -1px 0 0;
+    border: 1px solid #a3adba;
+    background-color: #fff;
+    -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    display: none;
+    text-align: left;
+}
+.formcondition-modal .sch-item .dropdown-menu-click.open .dropdown-content{
+	display:block;
+	top:24px;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box {
+/*     display: table-cell; */
+    display:inline-block;
+    vertical-align:top;
+    border-right: 1px solid #E0E3E7;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box:last-child {
+    border-right: none;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box ul {
+    padding: 10px 0;
+    width: 100px;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box li {
+    height: 36px;
+    line-height: 35px;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box li a {
+    color: #333;    
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box li a:hover,
+.formcondition-modal .sch-item .dropdown-content .filter-box li a:focus,
+.formcondition-modal .sch-item .dropdown-content .filter-box li.active a {
+    text-decoration:none;
+    background:#2dc3e8;
+    color:#fff;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box.filter-child li a:hover,
+.formcondition-modal .sch-item .dropdown-content .filter-box.filter-child li a:focus,
+.formcondition-modal .sch-item .dropdown-content .filter-box.filter-child li.active a {
+    background:#fff;
+    color:#5DB1F1;
+}
+.formcondition-modal .sch-item .dropdown-content .filter-box:nth-child(3) ul {
+    width: 112px;
+}
+.formcondition-modal .sch-item .dropdown-content .btn-box {
+    padding: 10px 15px;
+    overflow: hidden;
+    border-top: 1px solid #E8E8E8;
+}
+.formcondition-modal .sch-wrapper .entity-item .entitybox-toggle {
+    max-width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.formcondition-modal .sch-wrapper .control-btn{
+	vertical-align:top;
+}
+.formcondition-modal .sch-wrapper .sch-item-period .spline{
+	display:inline-block;
+	width:18px;
+	text-align:center;
+}
+.formcondition-modal .sch-wrapper .sch-group a.dele {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    color: #666;
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    width: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    margin-right: 0px;
+    top: 0;
+}
+.formcondition-modal .sch-wrapper .sch-group-opt a{
+	text-decoration:none;
+	color:#bdc3c7;
+	font-size:26px;
+	line-height:30px;
+	float:right;
+}
+.formcondition-modal .sch-wrapper .sch-group-opt a+a{
+	margin-right:5px;
+}
+.formcondition-modal .sch-wrapper .sch-group-opt a:hover{
+	color:#0088cc;
+}
+.formcondition-modal .sch-wrapper .sch-group .sch-group-opt .add{
+	display:none;
+	color:#5ab85e;
+}
+.formcondition-modal .sch-wrapper .sch-group:last-child .sch-group-opt a.add{
+	display:block;
+}
+.formcondition-modal .sch-wrapper .search-group-list>.search-group{
+	margin:0 0 10px 0;
+}
+.formcondition-modal .sch-wrapper > .sch-group > .btn + .btn {
+    margin-left: 0;
+}
+.formcondition-modal .module-help {
+    position: absolute;
+    right: 40px;
+    top: 16px;
+    color: #a4a4a4;
+}
+.formcondition-modal .module-help a,
+.formcondition-modal .module-help a:hover,
+.formcondition-modal .module-help a:active,
+.formcondition-modal .module-help a:focus{
+    color: #999;
+    text-decoration:none;
+} {
+    position: absolute;
+    right: 40px;
+    top: 16px;
+    color: #a4a4a4;
+}
+.formcondition-modal .entity-container{
+	display:inline;
+	margin: 0 3px 0 0;
+}
+.formcondition-modal .entity-container:empty,
+.formcondition-modal .entity-item:empty{
+	display:none;
+}
+.formcondition-modal .entity-item {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 15px 0 0;
+    margin-right: 5px;
+}
+.formcondition-modal .entity-item b{
+	color:#999;
+	margin-right:2px;
+}
+.formcondition-modal .entity-item a:not(.btn) {
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+    max-width: 100px;
+}
+.formcondition-modal .entity-item:not(.doc-attachment-item):hover a:not(.btn){
+	color:#5d9cec;
+}
+.formcondition-modal .entity-item a.item-name {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.formcondition-modal .entity-item .close {
+    font-size: 16px;
+    height: 30px;
+    margin-right: -15px;
+    opacity: 0.7;
+}
+.formcondition-modal .entity-item a.finished{
+	text-decoration:line-through;
+	color:#999;
+}
+.formcondition-modal .entity-item .avatar{
+	border-radius:50%;
+	height:24px;
+	width:24px;
+	vertical-align:middle;
+}
+.formcondition-modal .condition-box{
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
+/*选项型控件--筛选设置*/
+.formfilter-modal .sch-wrapper .sch-group {
+    min-height:32px;
+    margin:0 0 10px 0;
+    position:relative;
+}
+.formfilter-modal .sch-wrapper {
+    padding: 0px;
+    border: none;
+    background-color: #fff;
+}
+.formfilter-modal .sch-wrapper .sch-group .common-tag {
+    float: left;
+    line-height: 24px;
+    margin: 0 10px 0 0;
+}
+.formfilter-modal .sch-wrapper .sch-group .common-tag>a:hover {
+    text-decoration:none;
+}
+.formfilter-modal .sch-wrapper .sch-group .common-tag>.text {
+    max-width: 100px;
+    margin: 0 20px 0 0;
+    float: left;
+}
+.formfilter-modal .sch-wrapper .sch-group .common-tag>.close {
+    margin: 0 0 0 -16px;
+    float: left;
+    line-height: 22px;
+}
+.formfilter-modal .sch-wrapper .sch-group .controls > *,
+.formfilter-modal .sch-wrapper .controls .inner-el > * {
+    float: left;
+    margin-right: 10px;
+}
+.formfilter-modal .sch-wrapper .sch-item{
+   	line-height: 30px;
+    padding-top: 0;
+    float: left;
+}
+.formfilter-modal .sch-wrapper .sch-group>.controls {
+    margin: 0 0 0 170px;
+    padding: 0 40px 0 0;
+    position: relative;
+}
+.formfilter-modal .sch-wrapper .fake-btn-box{
+	position:relative;
+}
+.formfilter-modal .sch-wrapper .fake-btn-box select{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+	width:80px !important;
+	opacity:0;
+}
+.formfilter-modal .sch-wrapper .fake-btn-box select option{
+	line-height:24px;
+}
+.formfilter-modal .sch-wrapper .sch-item> select.form-control { 
+    width: 156px;
+}
+.formfilter-modal .sch-wrapper .sch-item > a {
+    vertical-align: top;
+}
+.formfilter-modal .sch-wrapper .sch-group select.form-control,
+.formfilter-modal .sch-wrapper .sch-group select > option{
+	padding: 4px;
+    vertical-align: top;
+}
+.formfilter-modal .sch-wrapper .sch-group>.controls>select {
+    max-width: 77px;
+}
+.formfilter-modal .sch-wrapper .sch-item-period input{
+	width:100px;
+	padding:5px 10px;
+}
+.formfilter-modal .sch-wrapper .cdts-addmem-wgt .add-btn{
+	background:#fff;
+}
+.formfilter-modal .sch-wrapper .open.cdts-addmem-wgt .add-btn{
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:0;
+	border-bottom:none;
+	border-color:#a3adba;
+}
+.formfilter-modal .sch-item .dropdown-content {
+    width: auto;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    margin: -1px 0 0;
+    border: 1px solid #a3adba;
+    background-color: #fff;
+    -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    display: none;
+    text-align: left;
+}
+.formfilter-modal .sch-item .dropdown-menu-click.open .dropdown-content{
+	display:block;
+	top:24px;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box {
+/*     display: table-cell; */
+    display:inline-block;
+    vertical-align:top;
+    border-right: 1px solid #E0E3E7;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box:last-child {
+    border-right: none;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box ul {
+    padding: 10px 0;
+    width: 102px;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box li {
+    height: 36px;
+    line-height: 35px;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box li a {
+    color: #333;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box li a:hover,
+.formfilter-modal .sch-item .dropdown-content .filter-box li a:focus,
+.formfilter-modal .sch-item .dropdown-content .filter-box li.active a {
+    text-decoration:none;
+    background:#2dc3e8;
+    color:#fff;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box.filter-child li a:hover,
+.formfilter-modal .sch-item .dropdown-content .filter-box.filter-child li a:focus,
+.formfilter-modal .sch-item .dropdown-content .filter-box.filter-child li.active a {
+    background:#fff;
+    color:#5DB1F1;
+}
+.formfilter-modal .sch-item .dropdown-content .filter-box:nth-child(3) ul {
+    width: 100px;
+}
+.formfilter-modal .filter-condition>.mCSB_vertical>.mCSB_container {
+    padding-bottom: 250px;
+}
+.formfilter-modal .sch-item .dropdown-content .btn-box {
+    padding: 10px 15px;
+    overflow: hidden;
+    border-top: 1px solid #E8E8E8;
+}
+.formfilter-modal .sch-wrapper .control-btn{
+	vertical-align:top;
+}
+.formfilter-modal .sch-wrapper .sch-item-period .spline{
+	display:inline-block;
+	width:18px;
+	text-align:center;
+}
+.formfilter-modal .sch-wrapper .sch-group a.dele {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    color: #666;
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    width: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    margin-right: 0px;
+    top: 0;
+}
+.formfilter-modal .sch-wrapper .sch-group-opt a{
+	text-decoration:none;
+	color:#bdc3c7;
+	font-size:26px;
+	line-height:30px;
+	float:right;
+}
+.formfilter-modal .sch-wrapper .sch-group-opt a+a{
+	margin-right:5px;
+}
+.formfilter-modal .sch-wrapper .sch-group-opt a:hover{
+	color:#0088cc;
+}
+.formfilter-modal .sch-wrapper .sch-group .sch-group-opt .add{
+	display:none;
+	color:#5ab85e;
+}
+.formfilter-modal .sch-wrapper .sch-group:last-child .sch-group-opt a.add{
+	display:block;
+}
+.formfilter-modal .sch-wrapper .search-group-list>.search-group{
+	margin:0 0 10px 0;
+}
+.formfilter-modal .sch-wrapper > .sch-group > .btn + .btn {
+    margin-left: 0;
+}
+.formfilter-modal .module-help {
+    position: absolute;
+    right: 40px;
+    top: 16px;
+    color: #a4a4a4;
+}
+.formfilter-modal .entity-container{
+	display:inline;
+	margin: 0 3px 0 0;
+}
+.formfilter-modal .entity-container:empty,
+.formfilter-modal .entity-item:empty{
+	display:none;
+}
+.formfilter-modal .entity-item{
+	display:inline-block;
+	vertical-align:middle;
+	padding:0 15px 0 0;
+}
+.formfilter-modal .entity-item b{
+	color:#999;
+	margin-right:2px;
+}
+.formfilter-modal .entity-item a:not(.btn){
+	line-height:30px;
+	display:inline-block;
+	vertical-align:top;
+	text-decoration:none;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	color:#333;
+	max-width: 100px;
+}
+
+.formfilter-modal .sch-wrapper .entity-item .entitybox-toggle {
+    max-width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.formfilter-modal .entity-item .entity-item>a.close{
+	display:none;
+}
+.formfilter-modal .entity-item .entity-item:hover>a.close{
+	display:inline-block;
+}
+.formfilter-modal .entity-item:not(.doc-attachment-item):hover a:not(.btn){
+	color:#5d9cec;
+}
+.formfilter-modal .entity-item a.item-name {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.formfilter-modal .entity-item .close {
+    font-size: 16px;
+    height: 30px;
+    margin-right: -15px;
+    opacity: 0.7;
+}
+.formfilter-modal .entity-item a.finished{
+	text-decoration:line-through;
+	color:#999;
+}
+.formfilter-modal .entity-item .avatar{
+	border-radius:50%;
+	height:24px;
+	width:24px;
+	vertical-align:middle;
+}
+.formfilter-modal .condition-box{
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
+/*图片水印设置*/
+.form-watermark-modal .watermark-main {
+    padding: 20px;
+    overflow: hidden;
+}
+.form-watermark-modal .watermark-main>div {
+    float: left;
+}
+.form-watermark-modal .watermark-box {
+    width: 430px;
+    border: 1px solid #E8E8EA;
+    margin-bottom: 12px;
+}
+.form-watermark-modal .watermark-box:last-child {
+    margin-bottom: 0px;
+}
+.form-watermark-modal .watermark-box .head {
+    padding: 9px 15px;
+    border-bottom: 1px solid #e8e8ea;
+    cursor: move;
+}
+.form-watermark-modal .watermark-box .head>* {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 20px;
+}
+.form-watermark-modal .watermark-box .head .checkbox-content, 
+.form-watermark-modal .watermark-box .head .checkbox-content>* {
+    cursor: pointer;
+}
+.form-watermark-modal .watermark-box .head>input {
+    margin: 0px 14px 0 0;
+}
+.form-watermark-modal .watermark-box .head>.tips, 
+.form-watermark-modal .watermark-box .head>.opt {
+    float: right;
+}
+.form-watermark-modal .watermark-box .head>.tips {
+    color: #a9a9a9;
+    font-size: 12px;
+}
+.form-watermark-modal .watermark-box .head>.opt {
+    color: #ababab;
+    margin-left: 18px;
+	display:inline-block;
+	-webkit-transition: all .15s ease;
+	-o-transition: all .15s ease;
+	transition: all .15s ease;
+}
+.form-watermark-modal .watermark-box .head>.opt.on{
+	-webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.form-watermark-modal .watermark-box .info {
+    padding: 15px;
+    color: #A9A9A9;
+}
+.form-watermark-modal .watermark-box .info>div>span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.form-watermark-modal .watermark-box .info .color-setting {
+    color: #6C6C6C;
+    border-bottom: 2px solid #6C6C6C;
+    padding: 0 3px;
+    cursor: pointer;
+}
+.form-watermark-modal .watermark-box .info .txt {
+    width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.form-watermark-modal .watermark-box .info>div {
+    margin-bottom: 10px;
+}
+.form-watermark-modal .watermark-box .info>div:last-child {
+    margin-bottom: 0px;
+}
+.form-watermark-modal .watermark-color {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0px;
+    width: 186px;
+    border: 1px solid #d5d5d5;
+    padding: 8px;
+    background-color: #fafafa;
+    overflow: hidden;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    position: fixed;
+}
+.form-watermark-modal .watermark-color.hide {
+    display: none;
+}
+.form-watermark-modal .watermark-color>span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin: 0 1px 1px 0;
+    cursor: pointer;
+}
+.form-watermark-modal .watermark-color>span.active {
+    box-shadow: inset 1px 1px 8px rgba(0,0,0,0.4);
+    -webkit-box-shadow: inset 1px 1px 8px rgba(0,0,0,0.4);
+}
+.form-watermark-modal .watermark-color>span:first-child {
+    width: 23px;
+    height: 23px;
+    float: left;
+}
+.form-watermark-modal .watermark-main>.preview-wrapper {
+    margin-left: 27px;
+    width: 240px;
+    height: 320px;
+    border: 1px solid #E8E8EA;
+    padding: 18px;
+}
+.form-watermark-modal .watermark-main>.config-wrapper .ui-sortable {
+    margin-right: 27px;
+}
+.form-watermark-modal .watermark-main>.preview-wrapper>div {
+    position: relative;
+    overflow: hidden;
+}
+.form-watermark-modal .watermark-main>.preview-wrapper>div>p {
+    overflow: hidden;
+    max-width: 100%;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: absolute;
+}
+.form-watermark-modal .watermark-main>.preview-wrapper>div>p.hide {
+    display: none;
+}
+.form-watermark-modal .preview-wrapper .tips {
+    color: #808080;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+/* 字段回收站 */
+.modal-trashbin .trashbin-fields .widget-item {
+    width: 32.5%;
+    margin: 6px 0.83%;
+    cursor: default;
+}
+.modal-trashbin .modal-dialog{
+	width:800px;
+}
+.modal-trashbin .modal-dialog .modal-body{
+	min-height:400px;
+}
+.modal-trashbin .trashbin-fields .field-back{
+	font-size:12px;
+	cursor:pointer;
+	float:right;
+}
+.modal-trashbin .trashbin-fields .field-back i{
+	margin-right:3px;
+}
+.modal-trashbin .trashbin-fields .field-back:hover{
+	color:#17a3ff;
+}
+.modal-trashbin .trashbin-nodata{
+	    font-size: 12px;
+    color: #999;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*电子发票设置*/
+.einvoice-table .tips {
+    color: #999;
+    font-size: 12px;
+}
+.einvoice-table>ul {
+    background-color: #fff;
+    border: 1px solid #f3f3f3;
+    margin-top: 10px;
+}
+.einvoice-table>ul>li.title {
+    font-weight: bold;
+}
+.einvoice-table>ul>li:not(.details), 
+.einvoice-table .details>ul>li {
+    width: 100%;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    border-bottom: 1px solid #f5f5f5;
+}
+.einvoice-table>ul>li:not(.title){
+	color:#666;
+}
+.einvoice-table ul li>div {
+    float: left;
+}
+.einvoice-table ul li .einvoice-filed {
+    width: 25%;
+}
+.einvoice-table ul li .info-filed>span, 
+.einvoice-table ul li .info-filed {
+    width: 20%;
+    display: inline-block;
+    font-size: 13px;
+    color: #999;
+}
+.einvoice-table ul li .form-filed>select {
+    width: 187px;
+    color: #666;
+}
+/*数据源设置*/
+.edit-data-header {
+  background: #2dc3e8;
+  height: 50px;
+  position: relative;
+  z-index: 1002;
+}
+.edit-data-header .user-panel {
+  width: 222px;
+  float: left;
+  padding: 0 15px 0 10px;
+  height: 100%;
+  position: relative;
+  -webkit-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+.edit-data-header .user-avatar {
+  margin: 5px 9px 0 0;
+  border-radius: 50%;
+  float: left;
+}
+.edit-data-header .user-avatar img {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  height: 38px;
+  width: 38px;
+}
+.edit-data-header .user-menu {
+  max-width: 146px;
+  float:left;
+  height: 48px;
+  font-size: 14px;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+.edit-data-header .user-menu p {
+  line-height: 18px;
+  display: block;
+}
+.edit-data-header .user-menu .user-person {
+    padding-top: 7px;
+    vertical-align: middle;
+    max-width: 140px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.edit-data-header .user-menu .user-team {
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  max-width: 100%;
+  display: inline-block;
+}
+.edit-data-main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 50px;
+  min-width: 1024px;
+  background: #eee;
+  padding: 20px;
+}
+.edit-data-box {
+  width: 1000px;
+  margin: 0 auto;
+}
+@media (min-width:1400px){
+	.edit-data-box {
+	  width: 80%;
+	}
+}
+.edit-data-search .btn-group {
+  width: 160px;
+}
+.edit-data-search .btn-group .form-control {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.edit-data-search .btn-group .form-control-feedback:hover {
+    text-decoration: none;
+}
+.edit-data-search {
+  margin-bottom: 20px;
+}
+.edit-data-list li .item {
+  width: 14%;
+  padding: 0 30px;
+}
+.edit-data-list li .time{
+  width: 18%;
+}
+.edit-data-list li .name {
+  width: 24%;
+}
+.edit-data-list li .opt {
+  width: 16%;
+}
+.sham-tab .list>ul>li>.time {
+  font-size: 13px;
+}
+.edit-data-list .item:not(:first-child) {
+  border-left: none;
+}
+.edit-data-list li .item:not(.name) {
+    text-align: center;
+}
+.edit-data-list .sham-tab .list>ul>li>.name, 
+.edit-data-list .sham-tab .list>ul>li>.type {
+  color: #333;
+}
+.edit-data-list .time>span+span {
+  margin-left: 5px;
+}
+.edit-data-list .time>span {
+  vertical-align: middle;
+}
+.edit-data-list li .opt .delete {
+  color: #999;
+}
+.edit-data-list li .opt .delete a {
+  vertical-align: middle;
+  display: inline-block;
+}
+.edit-data-list li .opt a:not(.hide)+a:not(.hide) {
+    margin-left: 20px;
+}
+.edit-data-list .table-more{
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #d5d5d5;
+  padding: 10px 20px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: #f5f5f5;
+  border-top: none;
+}
+.edit-data-list .table-more a {
+  color: #666;
+  text-decoration: none;
+}
+.edit-data-list .table-more:hover {
+  color: #444;
+  background: #f1f1f1;
+}
+.edit-data-list .table-more:active{
+	-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);
+		    box-shadow:inset 0 3px 5px rgba(0,0,0,.125);
+}
+.edit-data-list .sham-tab li:not(.title) {
+  border-bottom: none;
+}
+.edit-data-list .sham-tab li.no-data {
+  border-bottom: 1px solid #ddd;
+}
+
+.edit-data-modal .modal-dialog {
+  width: 800px;
+}
+.edit-data-modal .swicth-set-list .list-item,
+.edit-data-modal .swicth-set-list .list-title {
+	border-bottom:1px solid #eee;
+	overflow: hidden;
+	line-height: 30px;
+	min-height: 30px;
+	padding:9px 20px;
+	position:relative;
+}
+.edit-data-modal .swicth-set-list .list-item:last-child{
+	border: none;
+}
+.edit-data-modal .swicth-set-list .textinput{
+  color: #555555;
+  background: transparent;
+  border: 1px solid transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.edit-data-modal .swicth-set-list .textinput:hover{
+	border-color: #ddd;
+	background:#fff;
+	-webkit-transition: border .2s, box-shadow linear .2s;
+	-moz-transition: border .2s, box-shadow linear .2s;
+	-o-transition: border .2s, box-shadow linear .2s;
+	transition: border .2s, box-shadow linear .2s;
+}
+.edit-data-modal .swicth-set-list .textinput:focus{
+	border-color: rgba(82, 168, 236, 0.8);
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+.edit-data-modal .comboselectEdit-hasborder {
+  border-width: 1px 0 0 0;
+}
+.edit-data-modal .list-title {
+  position: relative;
+}
+.edit-data-modal .list-title .opt {
+  position: absolute;
+  right: 20px;
+  top: 9px;
+  font-size: 0px;
+}
+.edit-data-modal .list-title .opt a {
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 3px 10px;
+}
+.edit-data-modal .list-title .opt a+a {
+  padding-right: 0px;
+  border-left: 1px solid #ebebeb;
+}
+.edit-data-modal .comboselectEdit {
+  padding: 12px 0 0 0;
+}
+.edit-data-modal .comboselectEdit .input-div {
+  padding-left: 0px;
+}
+.edit-data-modal .comboselect-tab>li {
+  height: 29px;
+}
+.edit-data-modal .comboselect-tab>li>a {
+  padding: 3px 15px;
+}
+.edit-data-modal .comboselect-tab>li.delete {
+  float: right;
+  line-height: 30px;
+  padding-left: 10px;
+  color: #999;
+}
+.edit-data-modal .comboselect-tab>li.delete i {
+  cursor: pointer;
+}
